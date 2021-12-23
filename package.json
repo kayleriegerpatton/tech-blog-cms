@@ -1,0 +1,30 @@
+{
+  "name": "tech-blog-cms",
+  "version": "1.0.0",
+  "description": "A full-stack, CMS-style blog site featuring user-authentication, MVC structure, and Handlebars.js templating.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "seed": "npm db/seeds/index.js",
+    "start": "npm src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayleriegerpatton/tech-blog-cms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kayleriegerpatton/tech-blog-cms/issues"
+  },
+  "homepage": "https://github.com/kayleriegerpatton/tech-blog-cms#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^7.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
