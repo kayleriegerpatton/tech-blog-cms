@@ -5,12 +5,12 @@ const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_HOST = process.env.DB_HOST;
 
-// const options = {
-//   host: DB_HOST,
-//   dialect: 'mysql',
-//   port: 3306,
-//   logging: false,
-// };
+const options = {
+  host: DB_HOST,
+  dialect: "mysql",
+  port: 3000,
+  logging: false,
+};
 
 const connection = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, options);
 
