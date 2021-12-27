@@ -1,9 +1,23 @@
+:root {
+  --imperial-red: #e63946ff;
+  --honeydew: #f1faeeff;
+  --powder-blue: #a8dadcff;
+  --celadon-blue: #457b9dff;
+  --prussian-blue: #1d3557ff;
+}
+
 body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  background-color: var(--honeydew);
 }
 
 .card {
-  margin: 10px 40px;
+  border-color: var(--imperial-red);
+  border-width: 3px;
+}
+
+.card-title {
+  color: var(--prussian-blue);
 }
