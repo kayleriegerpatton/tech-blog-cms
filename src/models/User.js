@@ -5,6 +5,7 @@ class User extends Model {}
 
 const attributes = {
   id: {
+    //   confirm UUID data type
     type: DataTypes.UUIDV4,
     allowNull: false,
     primaryKey: true,
