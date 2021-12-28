@@ -19,3 +19,7 @@ const userData = [
     password: "karamelomeno",
   },
 ];
+
+const seedUsers = () => User.bulkCreate(userData);
+
+module.exports = seedUsers;
