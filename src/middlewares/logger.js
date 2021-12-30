@@ -1,4 +1,12 @@
 const moment = require("moment");
+// const colors = require("colors");
+
+// colors.setTheme({
+//   success: ["bgGreen", "black"],
+//   warning: ["bgBrightYellow", "black", "bold"],
+//   fail: ["bgRed", "white", "bold"],
+//   message: ["bgWhite", "black"],
+// });
 
 const logger = (req, res, next) => {
   const { url, method } = req;

@@ -1,12 +1,13 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("sequelize");
+const sequelize = require("../config/connection");
 
 class User extends Model {}
 
 const attributes = {
   id: {
     //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     allowNull: false,
     primaryKey: true,
   },
@@ -17,6 +18,7 @@ const attributes = {
   },
   password: {
     type: DataTypes.STRING,
+    allowNull: false,
     // add hook for hashing password beforeCreate
   },
 };

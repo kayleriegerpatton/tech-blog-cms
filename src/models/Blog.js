@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Blog extends Model {}
 
 const attributes = {
   id: {
     //   confirm UUID data type
-    type: DataTypes.UUID,
+    type: DataTypes.UUIDV4,
     allowNull: false,
     primaryKey: true,
   },
@@ -15,7 +15,7 @@ const attributes = {
     allowNull: false,
   },
   title: {
-    type: DataTypes.VARCHAR(70),
+    type: DataTypes.STRING(70),
     allowNull: false,
   },
   user_id: {

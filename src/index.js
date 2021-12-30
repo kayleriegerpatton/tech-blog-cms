@@ -16,7 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 // app.use(routes);
+const init = async () => {
+  await sequelize.sync({ force: false });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+};
+
+init();

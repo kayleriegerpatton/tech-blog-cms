@@ -1,18 +1,18 @@
 // import seed data
 const seedUsers = require("./user-seeds");
-const seedBlogs = require("./blog-seeds");
-const seedComments = require("./comment-seeds");
+// const seedBlogs = require("./blog-seeds");
+// const seedComments = require("./comment-seeds");
 
 const sequelize = require("../../src/config/connection");
 
-// const colors = require("colors");
+const colors = require("colors");
 
-// colors.setTheme({
-//   success: ["bgGreen", "black"],
-//   warning: ["bgBrightYellow", "black", "bold"],
-//   fail: ["bgRed", "white", "bold"],
-//   message: ["bgWhite", "black"],
-// });
+colors.setTheme({
+  success: ["bgGreen", "black"],
+  warning: ["bgBrightYellow", "black", "bold"],
+  fail: ["bgRed", "white", "bold"],
+  message: ["bgWhite", "black"],
+});
 
 // sync database and seed all data
 const seedAll = async () => {
