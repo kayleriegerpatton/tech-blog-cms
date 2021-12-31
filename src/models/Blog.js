@@ -5,22 +5,21 @@ class Blog extends Model {}
 
 const attributes = {
   id: {
-    //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-  },
-  content: {
-    type: DataTypes.TEXT,
-    allowNull: false,
   },
   title: {
     type: DataTypes.STRING(70),
     allowNull: false,
   },
+  content: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
   user_id: {
-    //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",

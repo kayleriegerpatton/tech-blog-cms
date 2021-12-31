@@ -5,8 +5,8 @@ class Comment extends Model {}
 
 const attributes = {
   id: {
-    //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
     allowNull: false,
   },
@@ -15,16 +15,14 @@ const attributes = {
     allowNull: false,
   },
   blog_id: {
-    //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
     references: {
       model: "blog",
       key: "id",
     },
   },
   user_id: {
-    //   confirm UUID data type
-    type: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",
