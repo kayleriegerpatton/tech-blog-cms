@@ -1,5 +1,5 @@
 // import Comment model
-const { Comment } = require("../../src/models");
+const { Comment } = require("../../models");
 
 const commentData = [
   {

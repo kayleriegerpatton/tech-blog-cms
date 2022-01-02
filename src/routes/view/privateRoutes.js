@@ -6,3 +6,5 @@ const router = Router();
 
 // private / endpoints
 router.get("/dashboard", renderDashboard);
+
+module.exports = router;

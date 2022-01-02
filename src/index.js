@@ -4,7 +4,7 @@ const express = require("express");
 
 // internal imports
 const sequelize = require("./config/connection");
-// const routes = require('./routes')
+const routes = require("./routes");
 const logger = require("./middlewares/logger");
 
 // setup express port
@@ -15,12 +15,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
-// app.use(routes);
+app.use(routes);
 const init = async () => {
   await sequelize.sync({ force: false });
 
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`.message);
   });
 };
 
