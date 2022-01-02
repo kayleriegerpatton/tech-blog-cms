@@ -1,21 +1,32 @@
-// external imports
+// EXTERNAL IMPORTS
 require("dotenv").config();
 const express = require("express");
+const expressHandlebars = require("express-handlebars");
 
-// internal imports
+// INTERNAL IMPORTS
 const sequelize = require("./config/connection");
 const routes = require("./routes");
 const logger = require("./middlewares/logger");
 
-// setup express port
+// declare port
 const PORT = process.env.PORT || 3000;
+
+// create handlebars instance
+const handlebars = expressHandlebars.create({});
+
+// declare express server app
 const app = express();
 
-// middlewares
+// MIDDLEWARES
+// use handlebars as tmeplate engine
+app.engine("handlebars", handlebars.engine);
+app.set("view engine", "handlebars");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 app.use(routes);
+
 const init = async () => {
   await sequelize.sync({ force: false });
 

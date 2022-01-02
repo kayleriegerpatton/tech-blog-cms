@@ -1,5 +1,5 @@
 const auth = (req, res, next) => {
-  // if logged in, proceed
+  // if logged in, proceed to private routes
   if (req.session.loggedIn) {
     console.log("In session");
 
