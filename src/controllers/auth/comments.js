@@ -1,4 +1,5 @@
 // import models
+const { Comment } = require("../../models");
 // import colors
 // import logError fn
 
