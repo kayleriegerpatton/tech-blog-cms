@@ -1,1 +1,28 @@
-<h1>Login</h1>
+<header>
+  {{>public-navbar}}
+</header>
+<main>
+    <h1 class="text-center my-4">Login</h1>
+    <form class="mx-5 w-50 mx-auto" id="signup-form">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            />
+            {{!-- <div id="emailHelp" class="form-text text-danger">
+            Email address does not exist.
+            </div> --}}
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" />
+            {{!-- <div id="emailHelp" class="form-text text-danger">
+            Incorrect password.
+            </div> --}}
+        </div>
+        <button type="submit" class="btn btn-danger">Login</button>
+        </form>
+</main>

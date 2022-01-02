@@ -13,6 +13,10 @@ body {
   background-color: var(--honeydew);
 }
 
+#intro-quote {
+  /* max-width: 50%; */
+}
+
 .card {
   border-color: var(--imperial-red);
   border-width: 3px;
@@ -20,4 +24,13 @@ body {
 
 .card-title {
   color: var(--prussian-blue);
+}
+
+/* MEDIA QUERIES */
+/* mobile vp */
+@media screen and (max-width: 480px) {
+  #signup-form {
+    border-style: solid var(--imperial-red) 5px;
+    max-width: 75%;
+  }
 }

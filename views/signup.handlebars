@@ -1,1 +1,36 @@
-<h1>Sign Up</h1>
+<header>
+  {{>public-navbar}}
+</header>
+<main>
+    <h1 class="text-center my-4">Sign Up</h1>
+        <form class="mx-5 w-50 mx-auto" id="signup-form">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            />
+            {{!-- <div id="emailHelp" class="form-text text-danger">
+            Please enter a valid email address.
+            </div> --}}
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" />
+            {{!-- <div id="emailHelp" class="form-text text-danger">
+            Password must be 8-64 characters and contain letters, numbers, and special
+            characters.
+            </div> --}}
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm password</label>
+            <input type="password" class="form-control" id="confirmPassword" />
+            {{!-- <div id="emailHelp" class="form-text text-danger">
+            Passwords do not match.
+            </div> --}}
+        </div>
+        <button type="submit" class="btn btn-danger">Sign Up</button>
+        </form>
+</main>
