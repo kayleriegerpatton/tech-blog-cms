@@ -3,20 +3,20 @@ const { User } = require("../../src/models");
 
 const userData = [
   {
-    username: "kayleriegerpatton",
-    password: "Password123",
+    username: "jenLawrence",
+    password: "GIRLonfIre",
   },
   {
-    username: "andrewpatton",
-    password: "Password456",
+    username: "boywhoLIVED",
+    password: "0731wizz",
   },
   {
-    username: "amypatton",
-    password: "cysllc",
+    username: "peculiarPort",
+    password: "peregrine10",
   },
   {
-    username: "johnpatton",
-    password: "karamelomeno",
+    username: "BloomingEM",
+    password: "@irQu33n",
   },
 ];
 

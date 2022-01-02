@@ -1,11 +1,22 @@
+// external imports
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
-class User extends Model {}
+// internal imports
+const sequelize = require("../config/connection");
+const hashPassword = require("../../hooks/hashPassword");
+
+class User extends Model {
+  // method to check password at login
+  async checkPassword(userPassword) {
+    const isValid = await bcrypt.compare(userPassword, this.password);
+
+    return isValid;
+  }
+}
 
 const attributes = {
   id: {
-    //   confirm UUID data type
     // type: DataTypes.UUID,
     // defaultValue: DataTypes.UUIDV4,
     type: DataTypes.INTEGER,
@@ -16,12 +27,15 @@ const attributes = {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    // add validation?
+    unique: true,
+    // any validation?
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
-    // add hook for hashing password beforeCreate
+    validate: {
+      len: [8, 20],
+    },
   },
 };
 
@@ -31,6 +45,9 @@ const options = {
   freezeTableName: true,
   underscored: true,
   modelName: "user",
+  hooks: {
+    beforeCreate: hashPassword,
+  },
 };
 
 User.init(attributes, options);
