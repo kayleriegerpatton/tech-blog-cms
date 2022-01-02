@@ -11,7 +11,7 @@ const router = Router();
 
 // public / endpoints
 router.get("/", renderHomepage);
-router.get("/sign-up", renderSignup);
+router.get("/signup", renderSignup);
 router.get("/login", renderLogin);
 router.get("/blogs/:id", renderBlog);
 
