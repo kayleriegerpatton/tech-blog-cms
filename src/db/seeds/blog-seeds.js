@@ -1,5 +1,5 @@
 // import Blog model
-const { Blog } = require("../../src/models");
+const { Blog } = require("../../models");
 
 const blogData = [
   {

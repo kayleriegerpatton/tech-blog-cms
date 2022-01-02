@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 // internal imports
 const sequelize = require("../config/connection");
-const hashPassword = require("../../hooks/hashPassword");
+const hashPassword = require("../hooks/hashPassword");
 
 class User extends Model {
   // method to check password at login
