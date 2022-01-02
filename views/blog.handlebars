@@ -1,1 +1,50 @@
-<h1>Single Blog</h1>
+<header>
+    {{>public-navbar}}
+</header>
+<main>
+    <h1 class="text-center my-4">Blog Title</h1>
+    <div class="card mx-auto my-4" id="blog-card" style="max-width: 50rem">
+        <div class="card-body">
+          {{!-- <h5 class="card-title">Blog title</h5> --}}
+          <h5 class="card-subtitle mb-2 text-muted">Author</h5>
+          <h6 class="card-subtitle mb-2 text-muted">date/time</h6>
+          <p class="card-text">
+            Blog content. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Dolorum rem molestias minima similique. Voluptatum labore,
+            rem, facilis reiciendis eveniet minus totam voluptate animi in
+            quidem quod nam unde vero facere. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Asperiores ea animi in voluptates
+            eaque consequatur, distinctio tempore nulla soluta saepe commodi
+            quasi labore ducimus inventore molestiae corporis. Neque, cumque
+            numquam.
+          </p>
+          <hr>
+          {{!-- COMMENT ENTRY --}}
+          <form class="w-100">
+            <div class="mb-3">
+            <label for="comment" class="form-label">Talk techie to us...</label>
+            <input type="text" class="form-control" id="comment"/>
+            </div>
+        <button type="submit" class="btn btn-danger">Comment</button>
+          </form>
+          {{!-- COMMENTS --}}
+          <div class="card mx-auto my-4" style="max-width: 50rem">
+            <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Author & dateTime</h6>
+          <p>Comment content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laudantium recusandae inventore aut rem ab quia quis officia deserunt voluptatum, nam illum, eos fugiat.</p>
+            </div>
+          </div>  
+          <div class="card mx-auto my-4" style="max-width: 50rem">
+            <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Author & dateTime</h6>
+          <p>Comment content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laudantium recusandae inventore aut rem ab quia quis officia deserunt voluptatum, nam illum, eos fugiat.</p>
+            </div>
+          </div> 
+          <div class="card mx-auto my-4" style="max-width: 50rem">
+            <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Author & dateTime</h6>
+          <p>Comment content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laudantium recusandae inventore aut rem ab quia quis officia deserunt voluptatum, nam illum, eos fugiat.</p>
+            </div>
+          </div> 
+    </div>
+</main>

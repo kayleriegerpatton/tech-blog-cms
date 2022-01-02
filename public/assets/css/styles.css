@@ -17,7 +17,7 @@ body {
   /* max-width: 50%; */
 }
 
-.card {
+#blog-card {
   border-color: var(--imperial-red);
   border-width: 3px;
 }
