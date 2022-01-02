@@ -34,7 +34,9 @@ const attributes = {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      len: [8, 20],
+      len: [8, 64],
+      // 8-64 characters; letters, numbers, special characters
+      is: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/,
     },
   },
 };
