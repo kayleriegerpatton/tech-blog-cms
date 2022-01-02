@@ -24,11 +24,13 @@ const attributes = {
     allowNull: false,
     primaryKey: true,
   },
-  username: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-    // any validation?
+    validate: {
+      isEmail: true,
+    },
   },
   password: {
     type: DataTypes.STRING,

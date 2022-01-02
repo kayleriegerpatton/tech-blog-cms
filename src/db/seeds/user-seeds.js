@@ -3,19 +3,19 @@ const { User } = require("../../models");
 
 const userData = [
   {
-    username: "jenLawrence",
+    email: "jenLawrence@email.com",
     password: "GIRLonfIre",
   },
   {
-    username: "boywhoLIVED",
+    email: "boywhoLIVED@hotmail.com",
     password: "0731wizz",
   },
   {
-    username: "peculiarPort",
+    email: "peculiarPort@gmail.com",
     password: "peregrine10",
   },
   {
-    username: "BloomingEM",
+    email: "BloomingEM@yahoo.com",
     password: "@irQu33n",
   },
 ];

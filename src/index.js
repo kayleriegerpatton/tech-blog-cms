@@ -12,7 +12,6 @@ const path = require("path");
 const sequelize = require("./config/connection");
 const routes = require("./routes");
 const logger = require("./middlewares/logger");
-const { Sequelize } = require("sequelize/dist");
 
 // declare port
 const PORT = process.env.PORT || 3000;
