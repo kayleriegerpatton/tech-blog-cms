@@ -1,14 +1,31 @@
 const { Blog, User, Comment } = require("../../models");
+const logError = require("../../utils/logError");
+const moment = require("moment");
 
 const renderHomepage = async (req, res) => {
-  const blogData = await Blog.findAll({
-    include: [{ model: User }],
-  });
+  try {
+    const blogData = await Blog.findAll({
+      include: [{ model: User }],
+    });
 
-  const blogs = blogData.map((blog) => blog.get({ plain: true }));
-  console.log(blogs);
+    const blogs = blogData.map((blog) => {
+      // use moment to reformat createdAt??
+      const createdAtFormatted = moment(blog.createdAt).format("MMMM D, YYYY");
 
-  res.render("homepage", { blogs });
+      blog.creationDate = createdAtFormatted;
+      console.log(blog);
+
+      return blog.get({ plain: true });
+    });
+    // console.log(blogs);
+
+    res.render("homepage", { blogs });
+  } catch (error) {
+    logError("GET blogs", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
 };
 
 const renderSignup = (req, res) => {
