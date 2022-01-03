@@ -10,7 +10,7 @@ const attributes = {
     primaryKey: true,
     allowNull: false,
   },
-  content: {
+  comment: {
     type: DataTypes.TEXT,
     allowNull: false,
   },

@@ -18,14 +18,13 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // session config
-const session = {
+const sessionOptions = {
   secret: process.env.SESSION_SECRET,
   cookie: {
     // 24 hours
     maxAge: 86400000,
   },
   resave: false,
-  // false or true?
   saveUninitialized: true,
   store: new SequelizeStore({
     // use same connected db 'sequelize'
@@ -33,13 +32,13 @@ const session = {
   }),
 };
 
-app.use(expressSession(session));
+app.use(expressSession(sessionOptions));
 
 // create handlebars instance
 const handlebars = expressHandlebars.create({});
 
 // MIDDLEWARES
-// use handlebars as tmeplate engine
+// use handlebars as template engine
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 
@@ -49,12 +48,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 app.use(routes);
 
+// initialize db connection and server
 const init = async () => {
-  await sequelize.sync({ force: false });
+  try {
+    await sequelize.sync({ force: false });
+    console.log("[INFO] Database connected.".success);
 
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`.message);
-  });
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`.message);
+    });
+  } catch (error) {
+    console.log(`[ERROR] Database connection failed: ${error.message}`.fail);
+  }
 };
 
 init();
