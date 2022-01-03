@@ -10,10 +10,10 @@ const renderHomepage = async (req, res) => {
 
     const blogs = blogData.map((blog) => {
       // use moment to reformat createdAt??
-      const createdAtFormatted = moment(blog.createdAt).format("MMMM D, YYYY");
+      // const createdAtFormatted = moment(blog.createdAt).format("MMMM D, YYYY");
 
-      blog.creationDate = createdAtFormatted;
-      console.log(blog);
+      // blog.creationDate = createdAtFormatted;
+      // console.log(blog);
 
       return blog.get({ plain: true });
     });
@@ -57,6 +57,7 @@ const renderBlog = async (req, res) => {
       { model: User },
       {
         model: Comment,
+        include: User,
       },
     ],
   });
@@ -65,8 +66,9 @@ const renderBlog = async (req, res) => {
       .status(404)
       .json({ message: `No blog with id ${req.params.id}.` });
   }
+
   const blog = blogData.get({ plain: true });
-  console.log(blog);
+  // console.log(blog);
 
   res.render("blog", blog);
 };

@@ -13,7 +13,7 @@
           </p>
           <hr>
           {{!-- COMMENT ENTRY FORM --}}
-          <form class="w-100">
+          <form class="w-100 mb-5">
             <div class="mb-3">
             <label for="comment" class="form-label">Talk techie to us...</label>
             <input type="text" class="form-control" id="comment"/>
@@ -21,11 +21,16 @@
         <button type="submit" class="btn btn-danger">Comment</button>
           </form>
           {{!-- COMMENTS --}}
+          <div>
+            <h3 class="mb-1">Comments</h3>
+          </div>
+          {{#each comments}}
           <div class="card mx-auto my-4" style="max-width: 50rem">
-            <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">{{comments.user_id}} & {{comments.updated_at}}</h6>
-          <p>{{comments.comment}}</p>
+            <div class="card-body pt-4 pb-1">
+          <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} | {{formatDate updatedAt}}</h6>
+          <p>{{comment}}</p>
             </div>
           </div> 
+          {{/each}}
     </div>
 </main>

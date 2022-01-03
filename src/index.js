@@ -12,6 +12,7 @@ const path = require("path");
 const sequelize = require("./config/connection");
 const routes = require("./routes");
 const logger = require("./middlewares/logger");
+const helpers = require("./helpers");
 
 // declare port
 const PORT = process.env.PORT || 3000;
@@ -35,7 +36,8 @@ const sessionOptions = {
 app.use(expressSession(sessionOptions));
 
 // create handlebars instance
-const handlebars = expressHandlebars.create({});
+const handlebarsOptions = { helpers };
+const handlebars = expressHandlebars.create(handlebarsOptions);
 
 // MIDDLEWARES
 // use handlebars as template engine
