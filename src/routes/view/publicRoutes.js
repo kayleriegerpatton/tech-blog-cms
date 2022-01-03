@@ -10,9 +10,9 @@ const {
 const router = Router();
 
 // public / endpoints
-router.get("/", renderHomepage);
-router.get("/signup", renderSignup);
 router.get("/login", renderLogin);
+router.get("/signup", renderSignup);
 router.get("/blogs/:id", renderBlog);
+router.get("/", renderHomepage);
 
 module.exports = router;

@@ -6,5 +6,8 @@ const router = Router();
 
 // private / endpoints
 router.get("/dashboard", renderDashboard);
+// renderCreateBlog?
+// renderEditBlog?
+// renderEditComment?
 
 module.exports = router;

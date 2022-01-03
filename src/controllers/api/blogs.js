@@ -1,24 +1,28 @@
-const { Blog, User } = require("../../models");
+// INTERNAL IMPORTS
+const { Blog, User, Comment } = require("../../models");
+// import colors?
+// import logError fn?
 
-const getAllBlogs = async (req, res) => {
-  try {
-    const blogData = await Blog.findAll({
-      include: [{ model: User }],
-    });
+// const getAllBlogs = async (req, res) => {
+//   try {
+//     const blogData = await Blog.findAll({
+//       include: [{ model: User }],
+//     });
 
-    const blogs = blogData.map((blog) => {
-      // use moment to reformat createdAt??
-      // const createdAtFormatted = moment(blog.createdAt).format("MMMM D, YYYY");
+//     const blogs = blogData.map((blog) => {
+//       return blog.get({ plain: true });
+//     });
+//     res.json(blogs);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-      // blog.creationDate = createdAtFormatted;
-      // console.log(blog);
+// /api/blogs/
+const addBlog = async (req, res) => {};
 
-      return blog.get({ plain: true });
-    });
-    res.json(blogs);
-  } catch (error) {
-    console.log(error);
-  }
-};
+// /api/blogs/:id
+const updateBlog = async (req, res) => {};
+const deleteBlog = async (req, res) => {};
 
-module.exports = { getAllBlogs };
+module.exports = { addBlog, updateBlog, deleteBlog };

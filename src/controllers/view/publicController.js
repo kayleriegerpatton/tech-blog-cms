@@ -1,6 +1,5 @@
 const { Blog, User, Comment } = require("../../models");
 const logError = require("../../utils/logError");
-const moment = require("moment");
 
 const renderHomepage = async (req, res) => {
   try {
@@ -9,15 +8,8 @@ const renderHomepage = async (req, res) => {
     });
 
     const blogs = blogData.map((blog) => {
-      // use moment to reformat createdAt??
-      // const createdAtFormatted = moment(blog.createdAt).format("MMMM D, YYYY");
-
-      // blog.creationDate = createdAtFormatted;
-      // console.log(blog);
-
       return blog.get({ plain: true });
     });
-    // console.log(blogs);
 
     res.render("homepage", { blogs });
   } catch (error) {
@@ -68,7 +60,6 @@ const renderBlog = async (req, res) => {
   }
 
   const blog = blogData.get({ plain: true });
-  // console.log(blog);
 
   res.render("blog", blog);
 };

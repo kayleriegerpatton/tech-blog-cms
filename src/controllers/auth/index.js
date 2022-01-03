@@ -1,10 +1,12 @@
 // INTERNAL IMPORTS
-const { Blog, User } = require("../../models");
+const { User } = require("../../models");
 const logError = require("../../utils/logError");
+
 // import colors?
 
 // /auth
 const login = async (req, res) => {};
+
 const signup = async (req, res) => {
   try {
     const newUserData = await User.create({
@@ -26,6 +28,5 @@ const signup = async (req, res) => {
 };
 
 const logout = (req, res) => {};
-const addBlog = async (req, res) => {};
 
-module.exports = { login, signup, logout, addBlog };
+module.exports = { login, signup, logout };
