@@ -19,7 +19,7 @@ const app = express();
 
 // session config
 const session = {
-  secret: "Secret",
+  secret: process.env.SESSION_SECRET,
   cookie: {
     // 24 hours
     maxAge: 86400000,
