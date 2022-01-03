@@ -29,11 +29,25 @@ const renderHomepage = async (req, res) => {
 };
 
 const renderSignup = (req, res) => {
-  res.render("signup");
+  try {
+    res.render("signup");
+  } catch (error) {
+    logError("Render signup", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
 };
 
 const renderLogin = (req, res) => {
-  res.render("login");
+  try {
+    res.render("login");
+  } catch (error) {
+    logError("Render login", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
 };
 
 const renderBlog = async (req, res) => {
