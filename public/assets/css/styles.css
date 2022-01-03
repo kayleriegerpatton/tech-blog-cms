@@ -26,6 +26,10 @@ body {
   color: var(--prussian-blue);
 }
 
+.card-text {
+  text-indent: 50px;
+}
+
 /* MEDIA QUERIES */
 /* mobile vp */
 @media screen and (max-width: 480px) {
