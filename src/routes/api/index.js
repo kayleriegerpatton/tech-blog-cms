@@ -1,8 +1,6 @@
 const { Router } = require("express");
 
-// import controller fns
-
-// further routes
+// THESE ARE FAILING TO REQUIRE
 const blogRoutes = require("./blogs");
 const commentRoutes = require("./comments");
 
