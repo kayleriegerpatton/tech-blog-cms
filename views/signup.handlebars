@@ -4,6 +4,7 @@
 <main>
     <h1 class="text-center my-4">Sign Up</h1>
         <form class="mx-5 w-50 mx-auto" id="signup-form">
+            {{!-- EMAIL --}}
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input
@@ -16,6 +17,20 @@
             Please enter a valid email address.
             </div> --}}
         </div>
+        {{!-- USERNAME --}}
+        <div class="mb-3">
+            <label for="email" class="form-label">Username</label>
+            <input
+            type="input"
+            class="form-control"
+            id="username"
+            aria-describedby="usernameHelp"
+            />
+            {{!-- <div id="usernameHelp" class="form-text text-danger">
+            Username must contain 8-64 letters, numbers, and/or special characters.
+            </div> --}}
+        </div>
+        {{!-- PASSWORD --}}
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" />
@@ -24,6 +39,7 @@
             characters.
             </div> --}}
         </div>
+        {{!-- CONFIRM PASSWORD --}}
         <div class="mb-3">
             <label for="confirmPassword" class="form-label">Confirm password</label>
             <input type="password" class="form-control" id="confirmPassword" />
@@ -31,6 +47,6 @@
             Passwords do not match.
             </div> --}}
         </div>
-        <button type="submit" class="btn btn-danger">Sign Up</button>
+        <button type="submit" class="btn btn-danger">Create Account</button>
         </form>
 </main>
