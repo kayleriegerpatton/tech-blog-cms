@@ -11,7 +11,10 @@ const renderHomepage = async (req, res) => {
       return blog.get({ plain: true });
     });
 
-    res.render("homepage", { blogs });
+    // pass session info
+    console.log(req.session);
+
+    res.render("homepage", { blogs, req });
   } catch (error) {
     logError("GET blogs", error.message);
     return res

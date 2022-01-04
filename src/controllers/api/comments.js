@@ -1,6 +1,6 @@
 // import models
-const { Comment } = require("../../models");
-// import colors
+const { Blog, User, Comment } = require("../../models");
+// import colors?
 // import logError fn
 
 // /auth/blogs/:id/comment

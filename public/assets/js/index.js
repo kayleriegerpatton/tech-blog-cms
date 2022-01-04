@@ -1,7 +1,6 @@
 // target UI elements
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
-// in private navbar
 const logoutBtn = $("#logout-btn");
 
 const handleLogin = async (event) => {

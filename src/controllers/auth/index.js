@@ -49,6 +49,8 @@ const login = async (req, res) => {
       req.session.loggedIn = true;
       req.session.user = userInSession;
 
+      console.log(req.session);
+
       return res.json({ success: true, message: "Logged in successfully." });
     });
   } catch (error) {
