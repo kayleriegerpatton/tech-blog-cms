@@ -4,7 +4,29 @@ const loginForm = $("#login-form");
 // in private navbar
 const logoutBtn = $("#logout-btn");
 
-const handleLogin = async () => {};
+const handleLogin = async (event) => {
+  event.preventDefault();
+
+  // get post body from form fields
+  const email = $("#email").val();
+  const password = $("#password").val();
+
+  // make POST request to /auth/login
+  const response = await fetch("/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await response.json();
+
+  // direct to dashboard
+  if (data.success) {
+    window.location.replace("/dashboard");
+  }
+};
 
 const handleSignup = async (event) => {
   event.preventDefault();
@@ -18,8 +40,7 @@ const handleSignup = async (event) => {
   // confirm passwords match
   if (password !== confirmPassword) {
     //  display error message
-
-    console.log("passwords don't match");
+    // console.log("passwords don't match");
   }
 
   // make post request to /auth/signup

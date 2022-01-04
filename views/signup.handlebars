@@ -27,17 +27,21 @@
             aria-describedby="usernameHelp"
             />
             <div id="usernameRequire" class="form-text">
-            Must be at least 8 characters.
+            Must contain at least 8 characters.
             </div> 
             {{!-- <div id="usernameHelp" class="form-text text-danger">
-            Username must contain 8-64 letters, numbers, and/or special characters.
+            Must contain at least 8 characters.
             </div> --}}
         </div>
         {{!-- PASSWORD --}}
         <div class="mb-3">
             <label for="password" class="form-label">Password*</label>
             <input type="password" class="form-control" id="password" />
-            {{!-- <div id="emailHelp" class="form-text text-danger">
+            <div id="passwordRequire" class="form-text">
+            Must contain 8-64 characters and contain letters, numbers, and special
+            characters.
+            </div> 
+            {{!-- <div id="passwordHelp" class="form-text text-danger">
             Password must be 8-64 characters and contain letters, numbers, and special
             characters.
             </div> --}}
