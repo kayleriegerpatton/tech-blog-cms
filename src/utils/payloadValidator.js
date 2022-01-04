@@ -6,6 +6,4 @@ const getPayloadWithValidFieldsOnly = (validFields, payload) =>
     {}
   );
 
-module.exports = {
-  getPayloadWithValidFieldsOnly,
-};
+module.exports = getPayloadWithValidFieldsOnly;

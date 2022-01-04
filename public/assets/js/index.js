@@ -6,10 +6,41 @@ const logoutBtn = $("#logout-btn");
 
 const handleLogin = async () => {};
 
-const handleSignup = async () => {
-    // get post body from form fields
-    const 
-    // make post request to /auth/signup
+const handleSignup = async (event) => {
+  event.preventDefault();
+
+  // get post body from form fields
+  const email = $("#email").val();
+  const username = $("#username").val();
+  const password = $("#password").val();
+  const confirmPassword = $("#confirmPassword").val();
+
+  // confirm passwords match
+  if (password !== confirmPassword) {
+    //  display error message
+
+    console.log("passwords don't match");
+  }
+
+  // make post request to /auth/signup
+  const response = await fetch("/auth/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      username,
+      password,
+    }),
+  });
+
+  const data = await response.json();
+
+  //   if success response, direct to login page
+  if (data.success) {
+    window.location.replace("/login");
+  }
 };
 
 const handleLogout = async () => {
@@ -29,3 +60,6 @@ const handleLogout = async () => {
 };
 
 // EVENT LISTENERS
+signupForm.on("submit", handleSignup);
+loginForm.on("submit", handleLogin);
+logoutBtn.on("click", handleLogout);
