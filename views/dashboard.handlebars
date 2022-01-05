@@ -3,4 +3,17 @@
 </header>
 <main>
     <h1 class="text-center my-4">My Blogs</h1>
+{{#if blogs}}
+  {{#each blogs as |blog|}}
+    <div class="card mx-auto my-4" style="max-width: 50rem">
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <h6 class="card-subtitle mb-2 mt-2 text-muted">Written {{formatDate createdAt}}</h6>
+         <p class="card-text px-3">
+            {{content}}
+          </p>
+        </div>
+    </div>
+    {{/each}}
+  {{/if}}
 </main>

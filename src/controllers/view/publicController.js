@@ -7,6 +7,8 @@ const renderHomepage = async (req, res) => {
       include: [{ model: User }],
     });
 
+    // console.log(blogData);
+
     const blogs = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
