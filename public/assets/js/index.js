@@ -3,6 +3,7 @@ const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
 const newBlogForm = $("#new-blog-form");
+const deleteBlogBtn = $("[name=delete-blog-btn]");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -111,8 +112,28 @@ const saveNewBlog = async (event) => {
   }
 };
 
+const deleteBlog = async (event) => {
+  const id = event.currentTarget.id;
+  console.log(id);
+
+  const response = await fetch(`/api/blogs/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    // send to dashboard
+    window.location.replace("/dashboard");
+  }
+};
+
 // EVENT LISTENERS
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
 logoutBtn.on("click", handleLogout);
 newBlogForm.on("submit", saveNewBlog);
+deleteBlogBtn.on("click", deleteBlog);

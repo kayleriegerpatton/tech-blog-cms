@@ -47,6 +47,26 @@ const addBlog = async (req, res) => {
 
 // /api/blogs/:id
 const updateBlog = async (req, res) => {};
-const deleteBlog = async (req, res) => {};
+
+const deleteBlog = async (req, res) => {
+  try {
+    // delete blog by its `id` value
+    await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    return res.json({
+      success: true,
+      data: `Blog with id ${req.params.id} deleted.`,
+    });
+  } catch (error) {
+    logError("DELETE blog", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
+};
 
 module.exports = { addBlog, updateBlog, deleteBlog, getAllBlogs };
