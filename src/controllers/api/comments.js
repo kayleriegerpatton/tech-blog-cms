@@ -1,7 +1,7 @@
 // import models
-const { Blog, User, Comment } = require("../../models");
+const { Comment } = require("../../models");
+const logError = require("../../utils/logError");
 // import colors?
-// import logError fn
 
 // /api/comments
 const addComment = async (req, res) => {

@@ -1,7 +1,7 @@
 // INTERNAL IMPORTS
-const { Blog, User, Comment } = require("../../models");
+const { Blog } = require("../../models");
+const logError = require("../../utils/logError");
 // import colors?
-// import logError fn?
 
 const getAllBlogs = async (req, res) => {
   try {
@@ -20,7 +20,30 @@ const getAllBlogs = async (req, res) => {
 
 // /api/blogs/
 const addBlog = async (req, res) => {
-  return res.json("addBlog fn");
+  try {
+    const { title, content, user_id } = req.body;
+
+    // check request body contents
+    if (title && content && user_id) {
+      await Blog.create({ title, content, user_id });
+
+      return res.json({
+        success: true,
+        data: `Added new blog.`,
+      });
+    }
+
+    // missing/bad data entry in request
+    return res.status(400).json({
+      success: false,
+      error: "Please provide the appropriate data entries.",
+    });
+
+    // server error
+  } catch (error) {
+    logError("POST blog", error.message);
+    res.status(500).json({ success: false, error: "Failed to send response." });
+  }
 };
 
 // /api/blogs/:id
