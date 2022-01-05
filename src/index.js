@@ -25,8 +25,11 @@ const sessionOptions = {
     // 24 hours
     // maxAge: 86400000,
 
+    // 9 minutes
+    maxAge: 540000,
+
     // 3 minutes
-    maxAge: 180000,
+    // maxAge: 180000,
   },
   resave: false,
   saveUninitialized: true,

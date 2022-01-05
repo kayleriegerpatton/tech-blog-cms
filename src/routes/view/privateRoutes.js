@@ -1,12 +1,15 @@
 const { Router } = require("express");
 
-const renderDashboard = require("../../controllers/view/privateController");
+const {
+  renderDashboard,
+  renderCreateBlog,
+} = require("../../controllers/view/privateController");
 
 const router = Router();
 
 // private / endpoints
 router.get("/dashboard", renderDashboard);
-// renderCreateBlog?
+router.get("/create-blog", renderCreateBlog);
 // renderEditBlog?
 // renderEditComment?
 

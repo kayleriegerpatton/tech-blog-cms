@@ -1,0 +1,30 @@
+<header>
+    {{>private-navbar}}
+</header>
+<main>
+  <h1 class="text-center my-4">Create a New Blog</h1>  
+  <form class="mx-5 w-50 mx-auto" id="signup-form">
+        {{!-- BLOG TITLE --}}
+        <div class="mb-3">
+            <label for="new-blog-title" class="form-label">Title *</label>
+            <input
+            type="input"
+            class="form-control"
+            id="new-blog-title"
+            aria-describedby="blogTitleHelp"
+            />
+            {{!-- <div id="new-blog-titleHelp" class="form-text text-danger">
+            Give your blog a name!
+            </div> --}}
+        </div>
+        {{!-- BLOG CONTENT --}}
+        <div class="mb-3">
+            <label for="new-blog-content" class="form-label">Content *</label>
+            <input type="text" class="form-control" id="new-blog-content" />
+            {{!-- <div id="new-blog-contentHelp" class="form-text text-danger">
+            You can't have an empty blog! 
+            </div> --}}
+        </div>
+        <button type="submit" class="btn btn-danger">Save Blog</button>
+        </form>
+</main>

@@ -1,7 +1,6 @@
 // INTERNAL IMPORTS
 const { Blog } = require("../../models");
 const logError = require("../../utils/logError");
-// import colors?
 
 const getAllBlogs = async (req, res) => {
   try {
