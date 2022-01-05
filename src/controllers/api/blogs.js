@@ -20,11 +20,11 @@ const getAllBlogs = async (req, res) => {
 // /api/blogs/
 const addBlog = async (req, res) => {
   try {
-    const { title, content, user_id } = req.body;
+    const { title, content } = req.body;
 
     // check request body contents
-    if (title && content && user_id) {
-      await Blog.create({ title, content, user_id });
+    if (title && content) {
+      await Blog.create({ title, content, user_id: req.session.user.id });
 
       return res.json({
         success: true,

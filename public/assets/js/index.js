@@ -2,7 +2,7 @@
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
-const saveNewBlogBtn = $("#save-new-blog-btn");
+const newBlogForm = $("#new-blog-form");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -88,7 +88,6 @@ const saveNewBlog = async (event) => {
   // get post body from form fields
   const title = $("#new-blog-title").val();
   const content = $("#new-blog-content").val();
-  // const userId = ;
 
   // ERROR MESSAGE FOR EMPTY FIELDS
 
@@ -101,7 +100,6 @@ const saveNewBlog = async (event) => {
     body: JSON.stringify({
       title,
       content,
-      user_id: userId,
     }),
   });
 
@@ -117,4 +115,4 @@ const saveNewBlog = async (event) => {
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
 logoutBtn.on("click", handleLogout);
-saveNewBlogBtn.on("submit", saveNewBlog);
+newBlogForm.on("submit", saveNewBlog);

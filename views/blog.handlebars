@@ -29,6 +29,12 @@
             <div class="card-body pt-4 pb-1">
           <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} | {{formatDate updatedAt}}</h6>
           <p>{{comment}}</p>
+          {{#if loggedIn}}
+          <div class="d-flex justify-content-end">
+            <button id="edit-btn" class=" btn btn-danger mt-2 mx-1">Edit</button>
+          <button id="edit-btn" class="btn btn-danger mt-2 mx-1">Delete</button>
+          </div>
+          {{/if}}
             </div>
           </div> 
           {{/each}}
