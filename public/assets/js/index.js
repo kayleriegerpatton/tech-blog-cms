@@ -5,6 +5,7 @@ const logoutBtn = $("#logout-btn");
 const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
 const readBlogBtn = $("[name=read-btn");
+const editBlogBtn = $("[name=edit-blog-btn");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -145,6 +146,10 @@ const viewSingleBlog = (event) => {
   window.location.replace(`/blogs/${id}`);
 };
 
+const editBlog = (event) => {
+  event.preventDefault();
+};
+
 // EVENT LISTENERS
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
@@ -152,3 +157,4 @@ logoutBtn.on("click", handleLogout);
 newBlogForm.on("submit", saveNewBlog);
 deleteBlogBtn.on("click", deleteBlog);
 readBlogBtn.on("click", viewSingleBlog);
+editBlogBtn.on("click", editBlog);

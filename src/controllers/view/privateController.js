@@ -34,4 +34,8 @@ const renderCreateBlog = (req, res) => {
   res.render("create-blog");
 };
 
-module.exports = { renderDashboard, renderCreateBlog };
+const renderEditBlog = (req, res) => {
+  res.render("");
+};
+
+module.exports = { renderDashboard, renderCreateBlog, renderEditBlog };
