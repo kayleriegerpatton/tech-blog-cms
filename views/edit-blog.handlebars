@@ -3,4 +3,12 @@
 </header>
 <main>
     <h1 class="text-center my-4">Edit Blog Post</h1>
+    <div class="card mx-auto my-4" id="blog-card" style="max-width: 50rem">
+        <div class="card-body">
+          <h5 class="card-subtitle mb-2 text-muted">{{blog.username}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{blog.updated_at}}</h6>
+          <p class="card-text px-3">
+            {{blog.content}}
+          </p>          
+    </div>
 </main>

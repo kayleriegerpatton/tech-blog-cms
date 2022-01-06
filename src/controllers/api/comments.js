@@ -31,6 +31,26 @@ const addComment = async (req, res) => {
 };
 
 const updateComment = async (req, res) => {};
-const deleteComment = async (req, res) => {};
+
+const deleteComment = async (req, res) => {
+  try {
+    // delete comment by its `id` value
+    await Comment.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    return res.json({
+      success: true,
+      data: `Comment with id ${req.params.id} deleted.`,
+    });
+  } catch (error) {
+    logError("DELETE comment", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
+};
 
 module.exports = { addComment, updateComment, deleteComment };

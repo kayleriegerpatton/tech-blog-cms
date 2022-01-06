@@ -135,19 +135,21 @@ const deleteBlog = async (event) => {
 const viewSingleBlog = (event) => {
   event.preventDefault();
 
-  console.log("read-btn clicked");
-
   // get blog id from btn
   const id = event.currentTarget.id;
-
-  console.log(id);
 
   // redirect to single blog page
   window.location.replace(`/blogs/${id}`);
 };
 
-const editBlog = (event) => {
+const handleEditBlogBtn = (event) => {
   event.preventDefault();
+
+  // get blog id from btn
+  const id = event.currentTarget.id;
+
+  // redirect to edit blog page
+  window.location.replace(`/edit-blog/${id}`);
 };
 
 // EVENT LISTENERS
@@ -157,4 +159,4 @@ logoutBtn.on("click", handleLogout);
 newBlogForm.on("submit", saveNewBlog);
 deleteBlogBtn.on("click", deleteBlog);
 readBlogBtn.on("click", viewSingleBlog);
-editBlogBtn.on("click", editBlog);
+editBlogBtn.on("click", handleEditBlogBtn);
