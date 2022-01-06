@@ -4,6 +4,7 @@ const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
 const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
+const readBlogBtn = $("[name=read-btn");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -114,7 +115,6 @@ const saveNewBlog = async (event) => {
 
 const deleteBlog = async (event) => {
   const id = event.currentTarget.id;
-  console.log(id);
 
   const response = await fetch(`/api/blogs/${id}`, {
     method: "DELETE",
@@ -131,9 +131,24 @@ const deleteBlog = async (event) => {
   }
 };
 
+const viewSingleBlog = (event) => {
+  event.preventDefault();
+
+  console.log("read-btn clicked");
+
+  // get blog id from btn
+  const id = event.currentTarget.id;
+
+  console.log(id);
+
+  // redirect to single blog page
+  window.location.replace(`/blogs/${id}`);
+};
+
 // EVENT LISTENERS
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
 logoutBtn.on("click", handleLogout);
 newBlogForm.on("submit", saveNewBlog);
 deleteBlogBtn.on("click", deleteBlog);
+readBlogBtn.on("click", viewSingleBlog);

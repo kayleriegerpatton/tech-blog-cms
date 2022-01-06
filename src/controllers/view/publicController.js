@@ -7,14 +7,10 @@ const renderHomepage = async (req, res) => {
       include: [{ model: User }],
     });
 
-    // console.log(blogData);
-
+    // map through blogs to get plain data
     const blogs = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
-
-    // pass session info
-    console.log(req.session);
 
     res.render("homepage", { blogs, req });
   } catch (error) {
@@ -48,25 +44,33 @@ const renderLogin = (req, res) => {
 };
 
 const renderBlog = async (req, res) => {
-  const blogData = await Blog.findByPk(req.params.id, {
-    // include user data (need username) and comments
-    include: [
-      { model: User },
-      {
-        model: Comment,
-        include: User,
-      },
-    ],
-  });
-  if (!blogData) {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      // include user data (need username) and comments
+      include: [
+        { model: User },
+        {
+          model: Comment,
+          include: User,
+        },
+      ],
+    });
+    if (!blogData) {
+      return res
+        .status(404)
+        .json({ message: `No blog with id ${req.params.id}.` });
+    }
+
+    // get plain blog data
+    const blog = blogData.get({ plain: true });
+
+    res.render("blog", { blog, req });
+  } catch (error) {
+    logError("GET blog", error.message);
     return res
-      .status(404)
-      .json({ message: `No blog with id ${req.params.id}.` });
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
   }
-
-  const blog = blogData.get({ plain: true });
-
-  res.render("blog", blog);
 };
 
 module.exports = { renderHomepage, renderSignup, renderLogin, renderBlog };
