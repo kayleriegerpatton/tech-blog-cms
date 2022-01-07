@@ -39,15 +39,15 @@ const renderCreateBlog = (req, res) => {
 };
 
 const renderEditBlog = async (req, res) => {
-  console.log(req.params);
-
   // get blog by id
-  // const blogData = await Blog.findByPk({ where: { id: req.params.id } });
+  const blogData = await Blog.findOne({ where: { id: req.params.id } });
 
-  // const blog = blogData.get({ plain: true });
+  // get plain blog data
+  const blog = blogData.get({ plain: true });
 
-  // res.render("edit-blog", { blog });
-  res.render("edit-blog");
+  console.log(blog);
+
+  res.render("edit-blog", { blog });
 };
 
 module.exports = { renderDashboard, renderCreateBlog, renderEditBlog };

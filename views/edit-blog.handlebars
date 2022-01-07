@@ -3,12 +3,32 @@
 </header>
 <main>
     <h1 class="text-center my-4">Edit Blog Post</h1>
-    <div class="card mx-auto my-4" id="blog-card" style="max-width: 50rem">
-        <div class="card-body">
-          <h5 class="card-subtitle mb-2 text-muted">{{blog.username}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{blog.updated_at}}</h6>
-          <p class="card-text px-3">
-            {{blog.content}}
-          </p>          
-    </div>
+     <form class="mx-5 w-50 mx-auto" id="edit-blog-form">
+        <div class="mb-3">
+            <label for="edit-blog-title" class="form-label">Title *</label>
+            <input
+            type="input"
+            class="form-control"
+            id="edit-blog-title"
+            aria-describedby="blogTitleHelp"
+            value='{{blog.title}}' required
+            />
+            {{!-- <div id="edit-blog-titleHelp" class="form-text text-danger">
+            Give your blog a name!
+            </div> --}}
+        </div>
+        {{!-- BLOG CONTENT --}}
+        <div class="mb-3">
+            <label for="edit-blog-content" class="form-label">Content *</label>
+            <textarea class="form-control" id="edit-blog-content" rows="15"  required>{{blog.content}}</textarea>
+            {{!-- <div id="edit-blog-contentHelp" class="form-text text-danger">
+            You can't have an empty blog! 
+            </div> --}}
+        </div>
+            <div class="d-flex justify-content-start">
+                <button type="submit" class="btn btn-danger me-3" id="save-blog-changes-btn" >Save Changes</button>
+                <button type="submit" class="btn btn-danger me-3" id="discard-blog-changes-btn" >Discard Changes</button>
+            </div>
+        </form>
+
 </main>
