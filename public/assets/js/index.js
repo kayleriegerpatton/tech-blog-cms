@@ -154,7 +154,7 @@ const handleEditBlogBtn = (event) => {
   const id = event.currentTarget.id;
 
   // redirect to edit blog page
-  window.location.replace(`/blogs/edit/${id}`);
+  window.location.replace(`/edit-blog/${id}`);
 };
 
 const saveBlogChanges = (event) => {

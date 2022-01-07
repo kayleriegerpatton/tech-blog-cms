@@ -1,6 +1,5 @@
 const { Router } = require("express");
 
-// THESE ARE FAILING TO REQUIRE
 const blogRoutes = require("./blogs");
 const commentRoutes = require("./comments");
 

@@ -50,4 +50,14 @@ const renderEditBlog = async (req, res) => {
   res.render("edit-blog", { blog });
 };
 
-module.exports = { renderDashboard, renderCreateBlog, renderEditBlog };
+const renderEditComment = async (req, res) => {
+  // pass comment data
+  res.render("edit-comment");
+};
+
+module.exports = {
+  renderDashboard,
+  renderCreateBlog,
+  renderEditBlog,
+  renderEditComment,
+};
