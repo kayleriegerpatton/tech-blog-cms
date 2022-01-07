@@ -6,6 +6,7 @@ const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
 const readBlogBtn = $("[name=read-btn");
 const editBlogBtn = $("[name=edit-blog-btn");
+const saveBlogChangesBtn = $("#save-blog-changes-btn");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -14,6 +15,7 @@ const handleLogin = async (event) => {
   const email = $("#email").val();
   const password = $("#password").val();
 
+  console.log(email);
   // make POST request to /auth/login
   const response = await fetch("/auth/login", {
     method: "POST",
@@ -25,8 +27,11 @@ const handleLogin = async (event) => {
 
   const data = await response.json();
 
+  console.log(data);
+
   // direct to dashboard
   if (data.success) {
+    console.log("Logged in");
     window.location.replace("/dashboard");
   }
 };
@@ -149,7 +154,39 @@ const handleEditBlogBtn = (event) => {
   const id = event.currentTarget.id;
 
   // redirect to edit blog page
-  window.location.replace(`/edit-blog/${id}`);
+  window.location.replace(`/blogs/edit/${id}`);
+};
+
+const saveBlogChanges = (event) => {
+  event.preventDefault();
+
+  // get blog id from button
+  const id = event.currentTarget.id;
+
+  // get post body from form fields
+  const title = $("#edit-blog-title").val();
+  const content = $("#edit-blog-content").val();
+
+  // ERROR MESSAGE FOR EMPTY FIELDS
+
+  // make PUT request to /api/blogs
+  const response = await fetch(`/api/blogs/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title,
+      content,
+    }),
+  });
+
+  const data = await response.json();
+
+  // if success response, direct to dashboard page
+  if (data.success) {
+    window.location.replace("/dashboard");
+  }
 };
 
 // EVENT LISTENERS
@@ -160,3 +197,4 @@ newBlogForm.on("submit", saveNewBlog);
 deleteBlogBtn.on("click", deleteBlog);
 readBlogBtn.on("click", viewSingleBlog);
 editBlogBtn.on("click", handleEditBlogBtn);
+saveBlogChangesBtn.on("click", saveBlogChanges);

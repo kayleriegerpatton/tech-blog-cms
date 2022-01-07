@@ -45,8 +45,39 @@ const addBlog = async (req, res) => {
   }
 };
 
-// /api/blogs/:id
-const updateBlog = async (req, res) => {};
+// /api/blogs/edit/:id
+const updateBlog = async (req, res) => {
+  try {
+    // update a blog's title and content by its `id` value
+    const { title, content } = req.body;
+    const { id } = req.params;
+    // check for blog in db
+    const blogId = await Blog.findByPk(id);
+    if (blogId) {
+      await Blog.update(
+        { title, content },
+        {
+          where: {
+            id,
+          },
+        }
+      );
+      return res.json({
+        success: true,
+        data: `Updated blog ${title}.`,
+      });
+    }
+    return res.status(404).json({
+      success: false,
+      error: `Blog with id ${id} doesn't exist.`,
+    });
+  } catch (error) {
+    logError("PUT blog", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response." });
+  }
+};
 
 const deleteBlog = async (req, res) => {
   try {

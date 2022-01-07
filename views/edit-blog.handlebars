@@ -20,14 +20,14 @@
         {{!-- BLOG CONTENT --}}
         <div class="mb-3">
             <label for="edit-blog-content" class="form-label">Content *</label>
-            <textarea class="form-control" id="edit-blog-content" rows="15"  required>{{blog.content}}</textarea>
+            <textarea class="form-control" id="edit-blog-content" rows="15" required>{{blog.content}}</textarea>
             {{!-- <div id="edit-blog-contentHelp" class="form-text text-danger">
             You can't have an empty blog! 
             </div> --}}
         </div>
             <div class="d-flex justify-content-start">
-                <button type="submit" class="btn btn-danger me-3" id="save-blog-changes-btn" >Save Changes</button>
-                <button type="submit" class="btn btn-danger me-3" id="discard-blog-changes-btn" >Discard Changes</button>
+                <button type="submit" class="btn btn-danger me-3" id={{blog.id}} name="save-blog-changes-btn" >Save Changes</button>
+                <button type="submit" class="btn btn-danger me-3" id={{blog.id}} name="discard-blog-changes-btn" >Discard Changes</button>
             </div>
         </form>
 
