@@ -6,7 +6,7 @@ const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
 const readBlogBtn = $("[name=read-btn");
 const editBlogBtn = $("[name=edit-blog-btn");
-const saveBlogChangesBtn = $("#save-blog-changes-btn");
+const saveBlogChangesBtn = $("[name=save-blog-changes-btn]");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -157,11 +157,13 @@ const handleEditBlogBtn = (event) => {
   window.location.replace(`/edit-blog/${id}`);
 };
 
-const saveBlogChanges = (event) => {
+const saveBlogChanges = async (event) => {
   event.preventDefault();
 
   // get blog id from button
   const id = event.currentTarget.id;
+
+  console.log(id);
 
   // get post body from form fields
   const title = $("#edit-blog-title").val();
@@ -182,6 +184,7 @@ const saveBlogChanges = (event) => {
   });
 
   const data = await response.json();
+  console.log(data);
 
   // if success response, direct to dashboard page
   if (data.success) {

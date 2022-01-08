@@ -23,10 +23,10 @@ const sessionOptions = {
   secret: process.env.SESSION_SECRET,
   cookie: {
     // 24 hours
-    // maxAge: 86400000,
+    maxAge: 86400000,
 
     // 9 minutes
-    maxAge: 540000,
+    // maxAge: 540000,
 
     // 3 minutes
     // maxAge: 180000,
