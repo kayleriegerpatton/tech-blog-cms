@@ -1,7 +1,9 @@
-// target UI elements
+// AUTH interactions
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
+
+// BLOG interactions
 const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
 const readBlogBtn = $("[name=read-btn");
@@ -163,8 +165,6 @@ const saveBlogChanges = async (event) => {
   // get blog id from button
   const id = event.currentTarget.id;
 
-  console.log(id);
-
   // get post body from form fields
   const title = $("#edit-blog-title").val();
   const content = $("#edit-blog-content").val();
@@ -184,7 +184,6 @@ const saveBlogChanges = async (event) => {
   });
 
   const data = await response.json();
-  console.log(data);
 
   // if success response, direct to dashboard page
   if (data.success) {

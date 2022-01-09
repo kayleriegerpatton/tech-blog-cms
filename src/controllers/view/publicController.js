@@ -14,7 +14,7 @@ const renderHomepage = async (req, res) => {
 
     res.render("homepage", { blogs, req });
   } catch (error) {
-    logError("GET blogs", error.message);
+    logError("Render homepage", error.message);
     return res
       .status(500)
       .json({ success: false, error: "Failed to send response." });
@@ -64,7 +64,7 @@ const renderBlog = async (req, res) => {
     // get plain blog data
     const blog = blogData.get({ plain: true });
 
-    res.render("blog", { blog, req });
+    return res.render("blog", { blog, req });
   } catch (error) {
     logError("GET blog", error.message);
     return res

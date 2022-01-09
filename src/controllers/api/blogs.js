@@ -47,7 +47,6 @@ const addBlog = async (req, res) => {
 
 // /api/blogs/:id
 const updateBlog = async (req, res) => {
-  console.log("Hit updateBlog fn");
   try {
     // update a blog's title and content by its `id` value
     const { title, content } = req.body;
@@ -63,8 +62,6 @@ const updateBlog = async (req, res) => {
           },
         }
       );
-
-      console.log("Updated blog");
 
       return res.json({
         success: true,
