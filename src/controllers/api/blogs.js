@@ -13,7 +13,8 @@ const getAllBlogs = async (req, res) => {
     });
     res.json(blogs);
   } catch (error) {
-    console.log(error);
+    logError("GET all blogs", error.message);
+    res.status(500).json({ success: false, error: "Failed to send response." });
   }
 };
 
@@ -51,6 +52,7 @@ const updateBlog = async (req, res) => {
     // update a blog's title and content by its `id` value
     const { title, content } = req.body;
     const { id } = req.params;
+
     // check for blog in db
     const blogId = await Blog.findByPk(id);
     if (blogId) {
