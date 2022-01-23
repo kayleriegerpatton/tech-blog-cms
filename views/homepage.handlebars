@@ -1,5 +1,5 @@
 <header>
-  {{#if req.session.loggedIn}}
+  {{#if loggedIn}}
   {{> private-navbar}}
   {{else}}
   {{> public-navbar}}

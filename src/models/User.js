@@ -58,7 +58,6 @@ const options = {
   underscored: true,
   modelName: "user",
   hooks: {
-    beforeBulkCreate: hashPassword,
     beforeCreate: hashPassword,
   },
 };

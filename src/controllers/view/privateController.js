@@ -2,9 +2,11 @@ const { Blog, User, Comment } = require("../../models");
 
 const renderDashboard = async (req, res) => {
   try {
+    const { id } = req.session.user;
+
     // get all blogs by user's id
     const blogsData = await Blog.findAll(
-      { where: { user_id: req.session.user.id } },
+      { where: { user_id: id } },
       {
         // include comments
         include: [
@@ -20,7 +22,7 @@ const renderDashboard = async (req, res) => {
 
     res.render("dashboard", { blogs });
   } catch (error) {
-    logError("GET user's blogs", error.message);
+    logError("Render dashboard", error.message);
     return res
       .status(500)
       .json({ success: false, error: "Failed to send response." });

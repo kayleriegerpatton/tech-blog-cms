@@ -2,10 +2,13 @@
     {{>private-navbar}}
 </header>
 <main>
+  {{#if blogs}}
     <div class="d-flex justify-content-end mt-3">
           <a href="/create-blog" type="button" class="btn btn-danger mx-5" id="create-blog-btn">Create New Blog</a>
     </div>
+    {{/if}}
      <h1 class="text-center my-5">My Blogs</h1>
+     {{#if blogs}}
   {{#each blogs}} 
     <div class="card mx-auto my-4" style="max-width: 50rem">
         <div class="card-body">
@@ -20,4 +23,9 @@
         </div>
     </div>
     {{/each}} 
+    {{else}}
+      <div class="d-flex justify-content-center mt-3">
+          <a href="/create-blog" type="button" class="btn btn-danger mx-5" id="create-blog-btn">Create Your First Blog!</a>
+    </div>
+    {{/if}}
 </main>

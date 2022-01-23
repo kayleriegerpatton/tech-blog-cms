@@ -10,6 +10,9 @@ const readBlogBtn = $("[name=read-btn");
 const editBlogBtn = $("[name=edit-blog-btn");
 const saveBlogChangesBtn = $("[name=save-blog-changes-btn]");
 
+// COMMENT interactions
+const addCommentBtn = $("#add-comment-btn");
+
 const handleLogin = async (event) => {
   event.preventDefault();
 
@@ -17,7 +20,6 @@ const handleLogin = async (event) => {
   const email = $("#email").val();
   const password = $("#password").val();
 
-  console.log(email);
   // make POST request to /auth/login
   const response = await fetch("/auth/login", {
     method: "POST",
@@ -33,7 +35,6 @@ const handleLogin = async (event) => {
 
   // direct to dashboard
   if (data.success) {
-    console.log("Logged in");
     window.location.replace("/dashboard");
   }
 };
@@ -191,6 +192,14 @@ const saveBlogChanges = async (event) => {
   }
 };
 
+const createComment = (event) => {
+  event.preventDefault();
+
+  // get comment value
+  // make POST request to api route
+  // reload page with new comment
+};
+
 // EVENT LISTENERS
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
@@ -200,3 +209,4 @@ deleteBlogBtn.on("click", deleteBlog);
 readBlogBtn.on("click", viewSingleBlog);
 editBlogBtn.on("click", handleEditBlogBtn);
 saveBlogChangesBtn.on("click", saveBlogChanges);
+addCommentBtn.on("submit", createComment);

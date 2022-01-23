@@ -12,7 +12,9 @@ const renderHomepage = async (req, res) => {
       return blog.get({ plain: true });
     });
 
-    res.render("homepage", { blogs, req });
+    const { loggedIn } = req.session;
+
+    res.render("homepage", { blogs, loggedIn });
   } catch (error) {
     logError("Render homepage", error.message);
     return res
@@ -61,10 +63,12 @@ const renderBlog = async (req, res) => {
         .json({ message: `No blog with id ${req.params.id}.` });
     }
 
+    const { loggedIn } = req.session;
+
     // get plain blog data
     const blog = blogData.get({ plain: true });
 
-    return res.render("blog", { blog, req });
+    return res.render("blog", { blog, loggedIn });
   } catch (error) {
     logError("GET blog", error.message);
     return res
