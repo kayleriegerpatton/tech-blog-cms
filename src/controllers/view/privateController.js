@@ -47,14 +47,18 @@ const renderEditBlog = async (req, res) => {
   // get plain blog data
   const blog = blogData.get({ plain: true });
 
-  console.log(blog);
-
   res.render("edit-blog", { blog });
 };
 
 const renderEditComment = async (req, res) => {
+  // get comment by id
+  const commentData = await Comment.findOne({ where: { id: req.params.id } });
+
+  //  get plain comment data
+  const comment = commentData.get({ plain: true });
+
   // pass comment data
-  res.render("edit-comment");
+  res.render("edit-comment", { comment });
 };
 
 module.exports = {

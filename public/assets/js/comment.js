@@ -1,5 +1,6 @@
 const addCommentBtn = $("[name=add-comment-btn]");
 const deleteCommentBtn = $("[name=delete-comment-btn]");
+const editCommentBtn = $("");
 
 const createComment = async (event) => {
   event.preventDefault();
@@ -34,6 +35,8 @@ const createComment = async (event) => {
     window.location.replace(`/blogs/${blogId}`);
   }
 };
+
+const editComment = async (event) => {};
 
 const deleteComment = async (event) => {
   const commentId = event.currentTarget.id;

@@ -30,11 +30,45 @@ const addComment = async (req, res) => {
   }
 };
 
-const updateComment = async (req, res) => {};
+const updateComment = async (req, res) => {
+  try {
+    // update a comment's content by its `id` value
+    const { comment } = req.body;
+    const { id } = req.params;
+
+    // check for comment in db
+    const commentId = await Comment.findByPk(id);
+
+    // if comment exists, update
+    if (commentId) {
+      await Comment.update(
+        { comment },
+        {
+          where: {
+            id,
+          },
+        }
+      );
+
+      return res.json({
+        success: true,
+        data: `Updated comment ${id}.`,
+      });
+    }
+    return res.status(404).json({
+      success: false,
+      error: `Comment with id ${id} doesn't exist.`,
+    });
+  } catch (error) {
+    logError("PUT comment", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to update comment." });
+  }
+};
 
 const deleteComment = async (req, res) => {
   try {
-    // delete comment by its `id` value
     await Comment.destroy({
       where: {
         id: req.params.id,

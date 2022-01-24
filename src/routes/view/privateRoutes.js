@@ -13,6 +13,6 @@ const router = Router();
 router.get("/dashboard", renderDashboard);
 router.get("/create-blog", renderCreateBlog);
 router.get("/edit-blog/:id", renderEditBlog);
-router.get("comment/edit/:id", renderEditComment);
+router.get("/comment/edit/:id", renderEditComment);
 
 module.exports = router;
