@@ -28,9 +28,23 @@
             <div class="d-flex justify-content-start">
                 <button type="submit" class="btn btn-danger me-3" name="save-blog-changes-btn" id={{blog.id}}>Save Changes</button>
 
-                <button type="submit" class="btn btn-danger me-3" id={{blog.id}} name="discard-blog-changes-btn" >Discard Changes</button>
+                <a href="/dashboard" class="btn btn-danger me-3" id={{blog.id}} name="discard-blog-changes-btn" >Discard Changes</a>
             </div>
         </form>
 
 </main>
 {{>footer}}
+  {{! BOOTSTRAP JS }}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    {{! JQUERY }}
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/assets/js/blog.js"></script>

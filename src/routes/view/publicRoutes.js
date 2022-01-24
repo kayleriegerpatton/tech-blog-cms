@@ -13,6 +13,6 @@ const router = Router();
 router.get("/login", renderLogin);
 router.get("/signup", renderSignup);
 router.get("/blogs/:id", renderBlog);
-router.get("/*", renderHomepage);
+router.get("/", renderHomepage);
 
 module.exports = router;
