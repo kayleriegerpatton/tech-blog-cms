@@ -5,11 +5,11 @@ const logError = require("../../utils/logError");
 // /api/comments
 const addComment = async (req, res) => {
   try {
-    const { comment, blog_id, user_id } = req.body;
+    const { comment, blog_id } = req.body;
 
     // check request body contents
-    if (comment && blog_id && user_id) {
-      await Comment.create({ comment, blog_id, user_id });
+    if (comment && blog_id) {
+      await Comment.create({ comment, blog_id, user_id: req.session.user.id });
 
       return res.json({
         success: true,

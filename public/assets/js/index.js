@@ -3,11 +3,6 @@ const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
 
-// BLOG interactions
-
-// COMMENT interactions
-const addCommentBtn = $("#add-comment-btn");
-
 const handleLogin = async (event) => {
   event.preventDefault();
 
@@ -88,43 +83,7 @@ const handleLogout = async () => {
   }
 };
 
-const createComment = (event) => {
-  event.preventDefault();
-
-  // get blog id from button
-  const blogId = event.currentTarget.id;
-  console.log(blogId);
-
-  // get comment value
-  const comment = addCommentBtn.val();
-  console.log(comment);
-
-  // *ERROR MESSAGE FOR EMPTY FIELDS
-
-  // make POST request to /api/comments/
-  const response = await fetch("/api/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      comment,
-      blog_id: blogId,
-      user_id: req.session.user.id,
-    }),
-  });
-
-  const data = await response.json();
-
-  // if success response, reload page with new comment
-  if (data.success) {
-    window.location.replace(`/blogs/${blogId}`);
-  }
-};
-
 // EVENT LISTENERS
 signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
 logoutBtn.on("click", handleLogout);
-
-addCommentBtn.on("submit", createComment);
