@@ -64,11 +64,12 @@ const renderBlog = async (req, res) => {
     }
 
     const { loggedIn } = req.session;
+    const { id } = req.session.user;
 
     // get plain blog data
     const blog = blogData.get({ plain: true });
 
-    return res.render("blog", { blog, loggedIn });
+    return res.render("blog", { blog, loggedIn, id });
   } catch (error) {
     logError("Render blog", error.message);
     return res
