@@ -4,7 +4,6 @@ const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
 
 // BLOG interactions
-const readBlogBtn = $("[name=read-btn");
 
 // COMMENT interactions
 const addCommentBtn = $("#add-comment-btn");
@@ -128,5 +127,4 @@ signupForm.on("submit", handleSignup);
 loginForm.on("submit", handleLogin);
 logoutBtn.on("click", handleLogout);
 
-readBlogBtn.on("click", viewSingleBlog);
 addCommentBtn.on("submit", createComment);

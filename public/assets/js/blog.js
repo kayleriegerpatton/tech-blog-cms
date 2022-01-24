@@ -1,5 +1,6 @@
 const newBlogForm = $("#new-blog-form");
 const deleteBlogBtn = $("[name=delete-blog-btn]");
+const readBlogBtn = $("[name=read-btn");
 const editBlogBtn = $("[name=edit-blog-btn");
 const saveBlogChangesBtn = $("[name=save-blog-changes-btn]");
 
@@ -105,5 +106,6 @@ const saveBlogChanges = async (event) => {
 // EVENT LISTENERS
 newBlogForm.on("submit", saveNewBlog);
 deleteBlogBtn.on("click", deleteBlog);
+readBlogBtn.on("click", viewSingleBlog);
 editBlogBtn.on("click", handleEditBlogBtn);
 saveBlogChangesBtn.on("click", saveBlogChanges);
