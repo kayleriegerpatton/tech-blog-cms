@@ -1,4 +1,5 @@
 const addCommentBtn = $("[name=add-comment-btn]");
+const deleteCommentBtn = $("[name=delete-comment-btn]");
 
 const createComment = async (event) => {
   event.preventDefault();
@@ -34,5 +35,25 @@ const createComment = async (event) => {
   }
 };
 
+const deleteComment = async (event) => {
+  const commentId = event.currentTarget.id;
+  const blogId = $("[name=delete-comment-btn]").attr("data-blog");
+
+  const response = await fetch(`/api/comments/${commentId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    // reload blog page
+    window.location.replace(`/blogs/${blogId}`);
+  }
+};
+
 // EVENT LISTENERS
 addCommentBtn.on("click", createComment);
+deleteCommentBtn.on("click", deleteComment);
