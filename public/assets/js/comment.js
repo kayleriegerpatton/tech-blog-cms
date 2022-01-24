@@ -1,6 +1,5 @@
 const addCommentBtn = $("[name=add-comment-btn]");
 const deleteCommentBtn = $("[name=delete-comment-btn]");
-const editCommentBtn = $("");
 
 const createComment = async (event) => {
   event.preventDefault();

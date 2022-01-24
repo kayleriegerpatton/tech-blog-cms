@@ -11,7 +11,7 @@
 
         <button type="submit" name="edit-comment-btn" class="btn btn-danger" id="{{comment.id}}">Save</button>
 
-        <button type="submit" name="discard-comment-changes-btn" class="btn btn-danger" id="{{comment.id}}">Discard</button>
+        <a href="/blogs/{{comment.blog_id}}" type="submit" name="discard-comment-changes-btn" class="btn btn-danger" id="{{comment.id}}">Discard</a>
       </form>
 </main>
 {{>footer}}
