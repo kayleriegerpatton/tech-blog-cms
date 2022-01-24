@@ -70,7 +70,7 @@ const renderBlog = async (req, res) => {
 
     return res.render("blog", { blog, loggedIn });
   } catch (error) {
-    logError("GET blog", error.message);
+    logError("Render blog", error.message);
     return res
       .status(500)
       .json({ success: false, error: "Failed to send response." });

@@ -18,6 +18,7 @@
       <hr>
 
       {{!-- COMMENT ENTRY FORM --}}
+      {{#if loggedIn}}
       <form class="w-100 mb-5">
         <div class="mb-3">
           <label for="comment" class="form-label">Talk techie to us...</label>
@@ -25,6 +26,7 @@
         </div>
         <button type="submit" name="add-comment-btn" class="btn btn-danger" id="{{blog.id}}">Comment</button>
       </form>
+      {{/if}}
 
       {{!-- COMMENTS --}}
       <div>
