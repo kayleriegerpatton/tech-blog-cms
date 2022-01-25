@@ -5,11 +5,10 @@
     <h1 class="text-center my-4">Edit Your Comment</h1>
     <form class="w-75 mb-5 mx-auto">
         <div class="mb-3">
-          {{!-- <label for="comment" class="form-label">Talk techie to us...</label> --}}
           <input type="text" class="form-control" id="new-comment-field" value="{{comment.comment}}"/>
         </div>
 
-        <button type="submit" name="edit-comment-btn" class="btn btn-danger" id="{{comment.id}}">Save</button>
+        <button type="submit" name="edit-comment-btn" class="btn btn-danger" data-blog="{{comment.blog_id}}" id="{{comment.id}}">Save</button>
 
         <a href="/blogs/{{comment.blog_id}}" type="submit" name="discard-comment-changes-btn" class="btn btn-danger" id="{{comment.id}}">Discard</a>
       </form>

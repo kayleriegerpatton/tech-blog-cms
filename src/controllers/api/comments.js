@@ -30,7 +30,9 @@ const addComment = async (req, res) => {
   }
 };
 
+// /api/comment/:id
 const updateComment = async (req, res) => {
+  console.log("Hit updateComment controller");
   try {
     // update a comment's content by its `id` value
     const { comment } = req.body;
