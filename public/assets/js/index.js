@@ -3,8 +3,8 @@ const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const logoutBtn = $("#logout-btn");
 
-const renderLoginErrorMessages = (errors) => {
-  const fields = ["email", "password"];
+const renderErrorMessages = (errors) => {
+  const fields = ["email", "password", "username", "confirmPassword"];
 
   fields.forEach((field) => {
     const errorDiv = $(`#${field}-error`);
@@ -20,11 +20,16 @@ const renderLoginErrorMessages = (errors) => {
 const getLoginErrors = ({ email, password }) => {
   const errors = {};
 
-  if (!email) {
+  if (!email || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
     errors.email = "Invalid email.";
   }
 
-  if (!password) {
+  if (
+    !password ||
+    !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/.test(
+      password
+    )
+  ) {
     errors.password = "Invalid password.";
   }
 
@@ -43,7 +48,7 @@ const handleLogin = async (event) => {
     email,
     password,
   });
-  renderLoginErrorMessages(errors);
+  renderErrorMessages(errors);
 
   // make POST request to /auth/login
   const response = await fetch("/auth/login", {
@@ -64,6 +69,33 @@ const handleLogin = async (event) => {
   }
 };
 
+const getSignupErrors = ({ email, username, password, confirmPassword }) => {
+  const errors = {};
+
+  if (!email || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    errors.email = "Invalid email.";
+  }
+
+  if (!username || !/^[A-Za-z0-9]{8,30}$/.test(username)) {
+    errors.username = "Invalid username.";
+  }
+
+  if (
+    !password ||
+    !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/.test(
+      password
+    )
+  ) {
+    errors.password = "Invalid password.";
+  }
+
+  if (!confirmPassword || password !== confirmPassword) {
+    errors.confirmPassword = "Password error.";
+  }
+
+  return errors;
+};
+
 const handleSignup = async (event) => {
   event.preventDefault();
 
@@ -73,7 +105,15 @@ const handleSignup = async (event) => {
   const password = $("#password").val();
   const confirmPassword = $("#confirmPassword").val();
 
-  // ERROR MESSAGE FOR EMPTY FIELDS
+  // display empty field errors
+  const errors = getSignupErrors({
+    email,
+    username,
+    password,
+    confirmPassword,
+  });
+
+  renderErrorMessages(errors);
 
   // confirm passwords match
   if (password !== confirmPassword) {
