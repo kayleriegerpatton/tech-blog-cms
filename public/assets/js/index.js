@@ -61,8 +61,6 @@ const handleLogin = async (event) => {
 
   const data = await response.json();
 
-  console.log(data);
-
   // direct to dashboard
   if (data.success) {
     window.location.replace("/dashboard");
@@ -114,12 +112,6 @@ const handleSignup = async (event) => {
   });
 
   renderErrorMessages(errors);
-
-  // confirm passwords match
-  if (password !== confirmPassword) {
-    //  DISPLAY ERROR MESSAGE
-    // console.log("passwords don't match");
-  }
 
   // make post request to /auth/signup
   const response = await fetch("/auth/signup", {

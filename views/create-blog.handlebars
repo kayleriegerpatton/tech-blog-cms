@@ -6,19 +6,18 @@
     <form class="mx-5 w-50 mx-auto" id="new-blog-form">
         {{!-- BLOG TITLE --}}
         <div class="mb-3">
-            <label for="new-blog-title" class="form-label">Title *</label>
+            <label for="new-blog-title" class="form-label">Title <span class="test-danger">*</span></label>
             <input type="input" class="form-control" id="new-blog-title" aria-describedby="blogTitleHelp" />
-            {{!-- <div id="new-blog-titleHelp" class="form-text text-danger">
-                Give your blog a name!
-            </div> --}}
+            <div id="title-error" class="form-text text-danger">
+            </div>
         </div>
+
         {{!-- BLOG CONTENT --}}
         <div class="mb-3">
-            <label for="new-blog-content" class="form-label">Content *</label>
+            <label for="new-blog-content" class="form-label">Content <span class="test-danger">*</span></label>
             <textarea class="form-control" id="new-blog-content" cols="30" rows="10"></textarea>
-            {{!-- <div id="new-blog-contentHelp" class="form-text text-danger">
-                You can't have an empty blog!
-            </div> --}}
+            <div id="content-error" class="form-text text-danger">
+            </div>
         </div>
         <button type="submit" class="btn btn-danger">Save Blog</button>
     </form>

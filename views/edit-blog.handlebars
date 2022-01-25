@@ -4,8 +4,10 @@
 <main>
     <h1 class="text-center my-4">Edit Blog Post</h1>
      <form class="mx-5 w-50 mx-auto" id="edit-blog-form">
+
+       {{!-- BLOG TITLE --}}
         <div class="mb-3">
-            <label for="edit-blog-title" class="form-label">Title *</label>
+            <label for="edit-blog-title" class="form-label">Title <span class="text-danger">*</span></label>
             <input
             type="input"
             class="form-control"
@@ -13,17 +15,16 @@
             aria-describedby="blogTitleHelp"
             value='{{blog.title}}' required
             />
-            {{!-- <div id="edit-blog-titleHelp" class="form-text text-danger">
-            Give your blog a name!
-            </div> --}}
+            <div id="title-error" class="form-text text-danger">
+            </div>
         </div>
+
         {{!-- BLOG CONTENT --}}
         <div class="mb-3">
-            <label for="edit-blog-content" class="form-label">Content *</label>
+            <label for="edit-blog-content" class="form-label">Content <span class="text-danger">*</span></label>
             <textarea class="form-control" id="edit-blog-content" rows="15" required>{{blog.content}}</textarea>
-            {{!-- <div id="edit-blog-contentHelp" class="form-text text-danger">
-            You can't have an empty blog! 
-            </div> --}}
+            <div id="content-error" class="form-text text-danger"> 
+            </div>
         </div>
             <div class="d-flex justify-content-start">
                 <button type="submit" class="btn btn-danger me-3" name="save-blog-changes-btn" id={{blog.id}}>Save Changes</button>

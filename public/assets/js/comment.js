@@ -2,37 +2,63 @@ const addCommentBtn = $("[name=add-comment-btn]");
 const deleteCommentBtn = $("[name=delete-comment-btn]");
 const saveCommentChangesBtn = $("[name=edit-comment-btn]");
 
+const renderCommentErrorMessages = (errors) => {
+  const fields = ["comment"];
+
+  fields.forEach((field) => {
+    const errorDiv = $(`#${field}-error`);
+
+    if (errors[field]) {
+      errorDiv.text(errors[field]);
+    } else {
+      errorDiv.text("");
+    }
+  });
+};
+
+const getCommentErrors = ({ comment }) => {
+  const errors = {};
+
+  if (!comment) {
+    errors.comment = "Please type your comment.";
+  }
+
+  return errors;
+};
+
 const createComment = async (event) => {
   event.preventDefault();
-  console.log("CreateComment fn");
 
   // get blog id from button
   const blogId = event.currentTarget.id;
-  console.log(blogId);
 
   // get comment value
   const comment = $("#new-comment-field").val();
-  console.log(comment);
 
-  // *ERROR MESSAGE FOR EMPTY FIELDS
+  // Display error messages
+  const errors = getCommentErrors({ comment });
+  renderCommentErrorMessages(errors);
 
-  // make POST request to /api/comments/
-  const response = await fetch("/api/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      comment,
-      blog_id: blogId,
-    }),
-  });
+  // if no errors, run request
+  if (!Object.keys(errors).length) {
+    // make POST request to /api/comments/
+    const response = await fetch("/api/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        comment,
+        blog_id: blogId,
+      }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  // if success response, reload page with new comment
-  if (data.success) {
-    window.location.replace(`/blogs/${blogId}`);
+    // if success response, reload page with new comment
+    if (data.success) {
+      window.location.replace(`/blogs/${blogId}`);
+    }
   }
 };
 
@@ -48,25 +74,29 @@ const editComment = async (event) => {
   // get post body from field
   const comment = $("#new-comment-field").val();
 
-  // *ERROR MESSAGE FOR EMPTY FIELDS ETC
+  // Display error messages
+  const errors = getCommentErrors({ comment });
 
-  // make put request to /api/comments
-  const response = await fetch(`/api/comments/${commentId}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      comment,
-    }),
-  });
+  renderCommentErrorMessages(errors);
 
-  const data = await response.json();
-  console.log("comment data:", data);
+  if (!Object.keys(errors).length) {
+    // make put request to /api/comments
+    const response = await fetch(`/api/comments/${commentId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        comment,
+      }),
+    });
 
-  // if success, redirect to blog page
-  if (data.success) {
-    window.location.replace(`/blogs/${blogId}`);
+    const data = await response.json();
+
+    // if success, redirect to blog page
+    if (data.success) {
+      window.location.replace(`/blogs/${blogId}`);
+    }
   }
 };
 

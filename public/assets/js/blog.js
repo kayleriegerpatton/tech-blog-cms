@@ -4,6 +4,34 @@ const readBlogBtn = $("[name=read-btn");
 const editBlogBtn = $("[name=edit-blog-btn");
 const saveBlogChangesBtn = $("[name=save-blog-changes-btn]");
 
+const renderBlogErrorMessages = (errors) => {
+  const fields = ["title", "content"];
+
+  fields.forEach((field) => {
+    const errorDiv = $(`#${field}-error`);
+
+    if (errors[field]) {
+      errorDiv.text(errors[field]);
+    } else {
+      errorDiv.text("");
+    }
+  });
+};
+
+const getBlogErrors = ({ title, content }) => {
+  const errors = {};
+
+  if (!title) {
+    errors.title = "Give your blog a title.";
+  }
+
+  if (!content) {
+    errors.content = "Your blog can't be empty!";
+  }
+
+  return errors;
+};
+
 const saveNewBlog = async (event) => {
   event.preventDefault();
 
@@ -11,25 +39,30 @@ const saveNewBlog = async (event) => {
   const title = $("#new-blog-title").val();
   const content = $("#new-blog-content").val();
 
-  // ERROR MESSAGE FOR EMPTY FIELDS
+  // Display error messages
+  const errors = getBlogErrors({ title, content });
+  renderBlogErrorMessages(errors);
 
-  // make POST request to /api/blogs
-  const response = await fetch("/api/blogs", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title,
-      content,
-    }),
-  });
+  // if no errors, run request
+  if (!Object.keys(errors).length) {
+    // make POST request to /api/blogs
+    const response = await fetch("/api/blogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        content,
+      }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  // if success response, direct to dashboard page
-  if (data.success) {
-    window.location.replace("/dashboard");
+    // if success response, direct to dashboard page
+    if (data.success) {
+      window.location.replace("/dashboard");
+    }
   }
 };
 
@@ -81,25 +114,31 @@ const saveBlogChanges = async (event) => {
   const title = $("#edit-blog-title").val();
   const content = $("#edit-blog-content").val();
 
-  // ERROR MESSAGE FOR EMPTY FIELDS
+  // display empty form errors
+  const errors = getBlogErrors({ title, content });
 
-  // make PUT request to /api/blogs
-  const response = await fetch(`/api/blogs/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title,
-      content,
-    }),
-  });
+  renderBlogErrorMessages(errors);
 
-  const data = await response.json();
+  // if no errors, run request
+  if (!Object.keys(errors).length) {
+    // make PUT request to /api/blogs
+    const response = await fetch(`/api/blogs/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        content,
+      }),
+    });
 
-  // if success response, direct to dashboard page
-  if (data.success) {
-    window.location.replace("/dashboard");
+    const data = await response.json();
+
+    // if success response, direct to dashboard page
+    if (data.success) {
+      window.location.replace("/dashboard");
+    }
   }
 };
 

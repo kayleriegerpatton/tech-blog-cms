@@ -6,6 +6,8 @@
     <form class="w-75 mb-5 mx-auto">
         <div class="mb-3">
           <input type="text" class="form-control" id="new-comment-field" value="{{comment.comment}}"/>
+          <div id="comment-error" class="form-text text-danger">
+            </div>
         </div>
 
         <button type="submit" name="edit-comment-btn" class="btn btn-danger" data-blog="{{comment.blog_id}}" id="{{comment.id}}">Save</button>
