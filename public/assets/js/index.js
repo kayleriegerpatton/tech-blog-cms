@@ -1,6 +1,7 @@
 // AUTH interactions
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
+const noUserModal = $("#no-user-modal");
 const logoutBtn = $("#logout-btn");
 
 const renderErrorMessages = (errors) => {
@@ -50,20 +51,27 @@ const handleLogin = async (event) => {
   });
   renderErrorMessages(errors);
 
-  // make POST request to /auth/login
-  const response = await fetch("/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  if (!Object.keys(errors).length) {
+    // make POST request to /auth/login
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  // direct to dashboard
-  if (data.success) {
-    window.location.replace("/dashboard");
+    if (data.error === "User does not exist.") {
+      noUserModal.modal("show");
+      console.log("bad user modal hit");
+    }
+
+    // direct to dashboard
+    if (data.success) {
+      window.location.replace("/dashboard");
+    }
   }
 };
 
