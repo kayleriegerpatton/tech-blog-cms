@@ -74,6 +74,18 @@ const signup = async (req, res) => {
         .json({ success: false, error: "Please provide the valid fields." });
     }
 
+    // check if user already exists in db
+    const user = await User.findOne({
+      where: { email: payload.email },
+    });
+
+    if (user) {
+      console.log("user exists in db, controller");
+      return res
+        .status(400)
+        .json({ success: false, error: "User already exists." });
+    }
+
     // create new user record w/ payload
     await User.create(payload);
 

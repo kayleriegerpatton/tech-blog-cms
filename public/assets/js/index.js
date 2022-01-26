@@ -1,5 +1,6 @@
 // AUTH interactions
 const signupForm = $("#signup-form");
+const userExistsModal = $("#user-exists-modal");
 const loginForm = $("#login-form");
 const noUserModal = $("#no-user-modal");
 const logoutBtn = $("#logout-btn");
@@ -65,7 +66,6 @@ const handleLogin = async (event) => {
 
     if (data.error === "User does not exist.") {
       noUserModal.modal("show");
-      console.log("bad user modal hit");
     }
 
     // direct to dashboard
@@ -121,24 +121,32 @@ const handleSignup = async (event) => {
 
   renderErrorMessages(errors);
 
-  // make post request to /auth/signup
-  const response = await fetch("/auth/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      username,
-      password,
-    }),
-  });
+  // if no errors, run request
+  if (!Object.keys(errors).length) {
+    // make post request to /auth/signup
+    const response = await fetch("/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        username,
+        password,
+      }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  //   if success response, direct to login page
-  if (data.success) {
-    window.location.replace("/login");
+    if (data.error === "User already exists.") {
+      console.log("show user exists modal, front end js");
+      userExistsModal.modal("show");
+    }
+
+    //   if success response, direct to login page
+    if (data.success) {
+      window.location.replace("/login");
+    }
   }
 };
 

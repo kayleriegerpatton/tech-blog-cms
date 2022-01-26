@@ -2,6 +2,7 @@
   {{>public-navbar}}
 </header>
 <main>
+    {{>user-exists-modal}}
     <h1 class="text-center my-4">Sign Up</h1>
         <form class="mx-5 w-50 mx-auto mb-5 p-3 rounded" id="signup-form" style="background-color: #fafafaa8;">
             
@@ -42,7 +43,7 @@
              <div id="password-error" class="form-text text-danger">
             </div>
             <div id="passwordRequire" class="form-text">
-            Must contain 8-64 characters and contain letters, numbers, and special
+            Must contain 8-64 letters, numbers, and special
             characters.
             </div> 
            
@@ -55,7 +56,7 @@
             <div id="confirmPassword-error" class="form-text text-danger">
             </div>
         </div>
-        <button type="submit" class="btn btn-danger">Create Account</button>
+        <button type="submit" class="btn btn-danger mt-3">Create Account</button>
         </form>
 </main>
 {{>footer}}
