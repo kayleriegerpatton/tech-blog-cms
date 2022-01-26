@@ -1,29 +1,52 @@
 :root {
-  --imperial-red: #e63946ff;
-  --honeydew: #f1faeeff;
-  --powder-blue: #a8dadcff;
-  --celadon-blue: #457b9dff;
-  --prussian-blue: #1d3557ff;
+  --lavender-blue: #e1d7ffff;
+  --red-ryb: #f44725ff;
+  --honey-yellow: #ffb601ff;
+  --white: #ffffffff;
+  --cultured: #f3f3f3ff;
+  --old-lavender: #6f6b7cff;
+  --eerie-black: #1a1a1aff;
 }
 
 body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  background-color: var(--honeydew);
+  background-image: url("assets/images/pawel-czerwinski-3vycqsMutjE-unsplash.jpg");
+  /* height: auto;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat; */
+  background-color: var(--lavender-blue);
 }
 
-#intro-quote {
-  /* max-width: 50%; */
+/* .bg-red {
+  background-color: var(--red-ryb);
+} */
+
+.btn-danger {
+  background-color: var(--red-ryb);
+  border-color: var(--red-ryb);
+  color: white;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:visited,
+.btn-danger:focus {
+  background-color: var(--honey-yellow);
+  border-color: var(--honey-yellow);
+  color: var(--eerie-black);
 }
 
 #blog-card {
-  border-color: var(--imperial-red);
+  border-color: var(--red-ryb);
   border-width: 3px;
 }
 
 .card-title {
-  color: var(--prussian-blue);
+  color: var(--eerie-black);
 }
 
 .card-text {

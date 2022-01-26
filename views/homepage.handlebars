@@ -12,7 +12,9 @@
         <div class="card-body">
           <h5 class="card-title">{{title}}</h5>
           <h6 class="card-subtitle mb-2 mt-2 text-muted">By {{user.username}} | {{formatDate createdAt}}</h6>
+          {{#if ../loggedIn}}
           <button id={{id}} name="read-btn" class="btn btn-danger mt-2">Read</button>
+          {{/if}}
         </div>
     </div>
     {{/each}}
