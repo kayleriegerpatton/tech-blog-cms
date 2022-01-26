@@ -8,24 +8,26 @@
 - [Questions](#questions)
 - [License](#license)
 - [Screenshots](#screenshots)
-- [Demo Video](#demo-video)
 
 ## Description
 
 A full-stack, CMS-style blog site featuring user-authentication, MVC structure, and Handlebars.js templating.
 
+From their dashboard, authenticated users can view, edit, and delete their published blogs as well as write new ones. While logged in, users may also view and comment on others' blogs and return to edit or delete their comments. Unauthorized users may only view the blog titles, authors, and publish dates, but are able to easily sign up to access all features.
+
 ### Technologies
 
-- CSS
-- Javascript
-- HTML
+- Bootstrap & custom CSS
+- Javascript & jQuery
+- HTML & Handlebars.js
 - Node.js
-- Express.js
-- MySQL
+- Express.js server
+- MySQL database
+- Font Awesome
 
 ### Deployed Application
 
-View the [live application](DEPLOYEDURL.HERE).
+View the [live application]().
 
 ## Questions
 
@@ -36,7 +38,3 @@ To contribute to or ask questions about this project, please contact me via [ema
 MIT License
 
 ## Screenshots
-
-## Demo Video
-
-View the [demo video](DEMOVIDEOLINK.HERE).
