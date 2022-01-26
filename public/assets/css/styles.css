@@ -1,5 +1,5 @@
 :root {
-  --lavender-blue: #e1d7ffff;
+  --lavender-blue: #e1d7ff8e;
   --red-ryb: #f44725ff;
   --honey-yellow: #ffb601ff;
   --white: #ffffffff;
@@ -12,13 +12,19 @@ body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  background-image: url("assets/images/pawel-czerwinski-3vycqsMutjE-unsplash.jpg");
-  /* height: auto;
+}
+
+main {
+  /* background image styles */
+  background-image: linear-gradient(to bottom, var(--lavender-blue), #e1d7ff00),
+    url("../images/pawel-czerwinski-3vycqsMutjE-unsplash.jpg");
+  background-size: cover;
+  padding: 20px;
+  background-repeat: no-repeat;
+  height: auto;
   background-position: center;
   background-size: cover;
   position: relative;
-  background-repeat: no-repeat; */
-  background-color: var(--lavender-blue);
 }
 
 /* .bg-red {
@@ -43,6 +49,7 @@ body {
 #blog-card {
   border-color: var(--red-ryb);
   border-width: 3px;
+  border-radius: 5px;
 }
 
 .card-title {
