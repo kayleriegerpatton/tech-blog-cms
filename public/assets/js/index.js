@@ -139,7 +139,6 @@ const handleSignup = async (event) => {
     const data = await response.json();
 
     if (data.error === "User already exists.") {
-      console.log("show user exists modal, front end js");
       userExistsModal.modal("show");
     }
 

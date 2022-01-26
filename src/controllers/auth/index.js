@@ -80,7 +80,6 @@ const signup = async (req, res) => {
     });
 
     if (user) {
-      console.log("user exists in db, controller");
       return res
         .status(400)
         .json({ success: false, error: "User already exists." });
