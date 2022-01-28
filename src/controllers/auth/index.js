@@ -29,7 +29,7 @@ const login = async (req, res) => {
         .json({ success: false, error: "User does not exist." });
     }
 
-    // check password (user.checkPassword), throw error
+    // check password, throw error
     const validPassword = await user.checkPassword(payload.password);
 
     if (!validPassword) {
@@ -44,7 +44,7 @@ const login = async (req, res) => {
       email: user.get("email"),
       username: user.get("username"),
     };
-    // req.session.save logged in and user session info
+    // save logged in and user session info
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user = userInSession;

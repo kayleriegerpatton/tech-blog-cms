@@ -17,8 +17,6 @@ class User extends Model {
 
 const attributes = {
   id: {
-    // type: DataTypes.UUID,
-    // defaultValue: DataTypes.UUIDV4,
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
