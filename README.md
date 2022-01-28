@@ -1,4 +1,4 @@
-# Tech Blog CMS ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=blueviolet)
+# Tech Talk | A Tech Blog CMS ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=blueviolet)
 
 ## Table of Contents
 
@@ -38,3 +38,19 @@ To contribute to or ask questions about this project, please contact me via [ema
 MIT License
 
 ## Screenshots
+
+### Landing Page
+
+![Tech Talk landing page with list og blogs](public/assets/images/screenshots/landing.png)
+
+### User Dashboard
+
+![Tech Talk user dashboard with authored blogs](public/assets/images/screenshots/dashboard.png)
+
+### Signup Page
+
+![Tech Talk signup form](public/assets/images/screenshots/signup.png)
+
+### Error Modal
+
+![Tech Talk 'user does not exist' error modal](public/assets/images/screenshots/error-modal.png)
