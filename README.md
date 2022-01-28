@@ -27,7 +27,7 @@ From their dashboard, authenticated users can view, edit, and delete their publi
 
 ### Deployed Application
 
-View the [live application]().
+View the [live application](https://teck-talk.herokuapp.com/).
 
 ## Questions
 
