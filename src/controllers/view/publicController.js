@@ -63,13 +63,18 @@ const renderBlog = async (req, res) => {
         .json({ message: `No blog with id ${req.params.id}.` });
     }
 
-    const { loggedIn } = req.session;
-    const { id } = req.session.user;
-
     // get plain blog data
     const blog = blogData.get({ plain: true });
 
-    return res.render("blog", { blog, loggedIn, id });
+    if (req.session.user) {
+      const { id } = req.session.user;
+      const { loggedIn } = req.session;
+      console.log("id:", id);
+      console.log("loggedin:", loggedIn);
+      return res.render("blog", { blog, id, loggedIn });
+    }
+
+    return res.render("blog", { blog });
   } catch (error) {
     logError("Render blog", error.message);
     return res
