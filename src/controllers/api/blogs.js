@@ -11,6 +11,7 @@ const getAllBlogs = async (req, res) => {
     const blogs = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
+
     res.json(blogs);
   } catch (error) {
     logError("GET all blogs", error.message);

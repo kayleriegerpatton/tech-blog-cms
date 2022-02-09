@@ -4,6 +4,7 @@ const logError = require("../../utils/logError");
 const renderHomepage = async (req, res) => {
   try {
     const blogData = await Blog.findAll({
+      order: [["createdAt", "DESC"]],
       include: [{ model: User }],
     });
 
@@ -11,6 +12,7 @@ const renderHomepage = async (req, res) => {
     const blogs = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
+    console.log(blogs);
 
     const { loggedIn } = req.session;
 
@@ -56,6 +58,7 @@ const renderBlog = async (req, res) => {
           include: User,
         },
       ],
+      order: [[Comment, "createdAt", "DESC"]],
     });
     if (!blogData) {
       return res
