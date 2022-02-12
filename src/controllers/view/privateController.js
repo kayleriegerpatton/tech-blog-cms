@@ -6,7 +6,7 @@ const renderDashboard = async (req, res) => {
 
     // get all blogs by user's id
     const blogsData = await Blog.findAll(
-      { where: { user_id: id } },
+      { where: { user_id: id }, order: [["createdAt", "DESC"]] },
       {
         // include comments
         include: [

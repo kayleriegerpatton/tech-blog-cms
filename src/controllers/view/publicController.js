@@ -72,8 +72,7 @@ const renderBlog = async (req, res) => {
     if (req.session.user) {
       const { id } = req.session.user;
       const { loggedIn } = req.session;
-      console.log("id:", id);
-      console.log("loggedin:", loggedIn);
+
       return res.render("blog", { blog, id, loggedIn });
     }
 
