@@ -12,7 +12,6 @@ const renderHomepage = async (req, res) => {
     const blogs = blogData.map((blog) => {
       return blog.get({ plain: true });
     });
-    console.log(blogs);
 
     const { loggedIn } = req.session;
 
