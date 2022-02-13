@@ -1,0 +1,70 @@
+:root {
+  --lavender-blue: #e1d7ff8e;
+  --red-ryb: #f44725ff;
+  --honey-yellow: #ffb601ff;
+  --white: #ffffffff;
+  --cultured: #f3f3f3ff;
+  --old-lavender: #6f6b7cff;
+  --eerie-black: #1a1a1aff;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  /* background image styles */
+  background-image: linear-gradient(to bottom, var(--lavender-blue), #e1d7ff00),
+    url("../images/pawel-czerwinski-3vycqsMutjE-unsplash.jpg");
+  background-size: cover;
+  padding: 20px;
+  background-repeat: no-repeat;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* .bg-red {
+  background-color: var(--red-ryb);
+} */
+
+.btn-danger {
+  background-color: var(--red-ryb);
+  border-color: var(--red-ryb);
+  color: white;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:visited,
+.btn-danger:focus {
+  background-color: var(--honey-yellow);
+  border-color: var(--honey-yellow);
+  color: var(--eerie-black);
+}
+
+#blog-card {
+  border-color: var(--red-ryb);
+  border-width: 3px;
+  border-radius: 5px;
+}
+
+.card-title {
+  color: var(--eerie-black);
+}
+
+.card-text {
+  text-indent: 50px;
+}
+
+/* MEDIA QUERIES */
+/* mobile vp */
+@media screen and (max-width: 480px) {
+  #signup-form {
+    border-style: solid var(--imperial-red) 5px;
+    max-width: 75%;
+  }
+}

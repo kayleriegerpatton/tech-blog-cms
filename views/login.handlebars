@@ -1,0 +1,38 @@
+<header>
+    {{>public-navbar}}
+</header>
+<main>
+    {{>no-user-modal}}
+    <h1 class="text-center my-4">Login</h1>
+    <form class="mx-5 w-50 mx-auto mb-5 p-3 rounded" id="login-form" style="background-color: #fafafaa8;">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
+            <div id="email-error" class="form-text text-danger">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" />
+            <div id="password-error" class="form-text text-danger">
+            </div>
+            <div id="passwordRequire" class="form-text">
+            Must contain 8-64 letters, numbers, and special
+            characters.
+            </div> 
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Login</button>
+    </form>
+</main>
+{{>footer}}
+
+{{! BOOTSTRAP JS }}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    
+{{! JQUERY }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/index.js"></script>
