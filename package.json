@@ -2,7 +2,7 @@
   "name": "tech-blog-cms",
   "version": "1.0.0",
   "engines": {
-    "node": "v16.13.0"
+    "node": "16.13.0"
   },
   "description": "A full-stack, CMS-style blog site featuring user-authentication, MVC structure, and Handlebars.js templating.",
   "main": "index.js",
