@@ -4,7 +4,6 @@
 
 - [Description](#description)
   - [Technologies](#technologies)
-  - [Deployed Application](#deployed-application)
 - [Questions](#questions)
 - [License](#license)
 - [Screenshots](#screenshots)
@@ -24,10 +23,6 @@ From their dashboard, authenticated users can view, edit, and delete their publi
 - Express.js server
 - MySQL database
 - Font Awesome
-
-### Deployed Application
-
-View the [live application](https://tech-talk-2022.herokuapp.com/).
 
 ## Questions
 
